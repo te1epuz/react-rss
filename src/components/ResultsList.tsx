@@ -13,7 +13,7 @@ class ResultsList extends React.Component<TProps> {
     return (
       <div>
         <h4>Search Results</h4>
-        <div className="items__big_grid">
+        <div className="items__big_grid" data-testid="results__list">
           {resultsArray.map((result) => (
             <ResultsCard key={result.id} result={result} />
           ))}

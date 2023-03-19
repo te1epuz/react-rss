@@ -1,18 +1,22 @@
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import NotFound from '../pages/NotFound';
 import { BrowserRouter } from 'react-router-dom';
 
-describe('App', () => {
-  it('Renders loading', () => {
+describe('NotFound', () => {
+  it('Renders h1', () => {
     // ARRANGE
     render(
       <BrowserRouter>
-        <App />
+        <NotFound />
       </BrowserRouter>
     );
     // ACT
     // EXPECT
-    expect(screen.getByText('loading...')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+      })
+    ).toHaveTextContent('404 page');
   });
 });

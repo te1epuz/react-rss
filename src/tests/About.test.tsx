@@ -1,18 +1,22 @@
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import About from '../pages/About';
 import { BrowserRouter } from 'react-router-dom';
 
-describe('App', () => {
-  it('Renders loading', () => {
+describe('About', () => {
+  it('Renders h1', () => {
     // ARRANGE
     render(
       <BrowserRouter>
-        <App />
+        <About />
       </BrowserRouter>
     );
     // ACT
     // EXPECT
-    expect(screen.getByText('loading...')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+      })
+    ).toHaveTextContent('About page');
   });
 });
