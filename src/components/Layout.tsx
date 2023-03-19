@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import Footer from './Footer';
 
 class Layout extends React.Component {
   render() {
@@ -13,9 +14,7 @@ class Layout extends React.Component {
           </nav>
         </header>
         <Outlet />
-        <footer>
-          <h3>this is footer</h3>
-        </footer>
+        <Footer />
       </>
     );
   }
