@@ -19,14 +19,11 @@ const result = {
 
 describe('ResultsCard', () => {
   it('Renders searh result card', () => {
-    // ARRANGE
     render(
       <BrowserRouter>
         <ResultsCard result={result} />
       </BrowserRouter>
     );
-    // ACT
-    // EXPECT
     expect(screen.getAllByRole('button')).toHaveLength(2);
   });
 });

@@ -21,14 +21,11 @@ const resultsArray = [
 
 describe('ResultsList', () => {
   it('Renders list of results', () => {
-    // ARRANGE
     render(
       <BrowserRouter>
         <ResultsList resultsArray={resultsArray} />
       </BrowserRouter>
     );
-    // ACT
-    // EXPECT
     expect(screen.getByTestId('results__list')).toBeInTheDocument();
   });
 });

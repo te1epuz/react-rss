@@ -10,16 +10,16 @@ class SearchBar extends React.Component {
     this.setState({
       searchBarText: event.target.value,
     });
-    localStorage.setItem('searchBarText', event.target.value); // added setItem here to save search text even on page reload
+    // localStorage.setItem('searchBarText', event.target.value); // this will allow to save text even on page reload
   }
 
   componentWillUnmount() {
-    localStorage.setItem('searchBarText', this.state.searchBarText); // currently reduntant, but required by the task description
+    localStorage.setItem('searchBarText', this.state.searchBarText);
   }
 
   render() {
     return (
-      <form onSubmit={(event) => event.preventDefault()} role="search">
+      <form role="search">
         <input
           type="search"
           className="input"

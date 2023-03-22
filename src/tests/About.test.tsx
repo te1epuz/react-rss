@@ -5,14 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 describe('About', () => {
   it('Renders h1', () => {
-    // ARRANGE
     render(
       <BrowserRouter>
         <About />
       </BrowserRouter>
     );
-    // ACT
-    // EXPECT
     expect(
       screen.getByRole('heading', {
         level: 1,

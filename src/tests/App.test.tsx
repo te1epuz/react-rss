@@ -5,14 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 describe('App', () => {
   it('Renders loading', () => {
-    // ARRANGE
     render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
     );
-    // ACT
-    // EXPECT
     expect(screen.getByText('loading...')).toBeInTheDocument();
   });
 });
