@@ -1,3 +1,5 @@
+import { RefObject } from 'react';
+
 export type TProduct = {
   id: number | string;
   brand: string;
@@ -14,4 +16,15 @@ export type TProduct = {
 
 export type TResponse = {
   products: TProduct[];
+};
+
+export type TFormData = {
+  name: RefObject<HTMLInputElement>;
+  radioMale: RefObject<HTMLInputElement>;
+  radioFemale: RefObject<HTMLInputElement>;
+  date: RefObject<HTMLInputElement>;
+  country: RefObject<HTMLSelectElement>;
+  checkbox1: RefObject<HTMLInputElement>;
+  checkbox2: RefObject<HTMLInputElement>;
+  file: RefObject<HTMLInputElement>;
 };
