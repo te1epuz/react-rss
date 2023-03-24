@@ -1,5 +1,5 @@
 import React from 'react';
-import { TProduct } from '../services/types';
+import { TProduct } from '../../services/types';
 import './ResultsCard.scss';
 
 type TProps = {

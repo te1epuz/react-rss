@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Home from '../pages/Home';
 import { BrowserRouter } from 'react-router-dom';
 import { getAllProducts } from '../services/api';
-import ResultsList from '../components/ResultsList';
+import ResultsList from '../components/Home/ResultsList';
 
 const resultsArray = [
   {

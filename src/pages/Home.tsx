@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from '../components/SearchBar';
-import ResultsList from '../components/ResultsList';
+import SearchBar from '../components/Home/SearchBar';
+import ResultsList from '../components/Home/ResultsList';
 import { getAllProducts } from '../services/api';
 import { TProduct } from '../services/types';
 

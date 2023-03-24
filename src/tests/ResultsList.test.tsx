@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ResultsList from '../components/ResultsList';
+import ResultsList from '../components/Home/ResultsList';
 import { BrowserRouter } from 'react-router-dom';
 
 const resultsArray = [

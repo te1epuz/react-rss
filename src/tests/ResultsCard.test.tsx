@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ResultsCard from '../components/ResultsCard';
+import ResultsCard from '../components/Home/ResultsCard';
 import { BrowserRouter } from 'react-router-dom';
 
 const result = {

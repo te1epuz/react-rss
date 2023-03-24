@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/Home/SearchBar';
 
 describe('Search Bar', () => {
   it('Search Bar exists', () => {
