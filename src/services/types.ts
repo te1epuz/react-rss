@@ -24,7 +24,16 @@ export type TFormData = {
   radioFemale: RefObject<HTMLInputElement>;
   date: RefObject<HTMLInputElement>;
   country: RefObject<HTMLSelectElement>;
-  checkbox1: RefObject<HTMLInputElement>;
-  checkbox2: RefObject<HTMLInputElement>;
+  checkbox: RefObject<HTMLInputElement>;
   file: RefObject<HTMLInputElement>;
+};
+
+export type TFormCard = {
+  id: number;
+  name: string;
+  gender: 'male' | 'female';
+  date: string;
+  country: string;
+  checkbox: boolean;
+  file: string;
 };

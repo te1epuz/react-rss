@@ -1,20 +1,20 @@
-import React, { RefObject } from 'react';
-import { TFormData } from '../services/types';
-
-type TFormCard = {
-  id: number;
-  name: string;
-  gender: 'male' | 'female';
-  date: string;
-  country: string;
-  checkbox1: boolean;
-  checkbox2: boolean;
-  file: string;
-};
+import React from 'react';
+import { TFormCard, TFormData } from '../services/types';
 
 type TState = {
   formData: TFormData;
   cardsList: TFormCard[];
+  isFormValid: { [index: string]: boolean };
+};
+
+const FORM_REG_EXPS: { [index: string]: RegExp } = {
+  id: /[1-999]/,
+  name: /^[A-Z]{1}([a-zA-Z]){1,}$/,
+  gender: /[1-999]/,
+  date: /[1-999]/,
+  country: /[1-999]/,
+  checkbox: /[1-999]/,
+  file: /[1-999]/,
 };
 
 class Forms extends React.Component {
@@ -25,40 +25,54 @@ class Forms extends React.Component {
       radioFemale: React.createRef(),
       date: React.createRef(),
       country: React.createRef(),
-      checkbox1: React.createRef(),
-      checkbox2: React.createRef(),
+      checkbox: React.createRef(),
       file: React.createRef(),
     },
     cardsList: [],
+    isFormValid: {
+      allFields: true,
+      id: true,
+      name: true,
+      gender: true,
+      date: true,
+      country: true,
+      checkbox: true,
+      file: true,
+    },
   };
-
-  inputName: RefObject<HTMLInputElement> = React.createRef();
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log('name:', this.state.formData.name.current?.value);
-    console.log('male:', this.state.formData.radioMale.current?.checked);
-    console.log('female:', this.state.formData.radioFemale.current?.checked);
-    console.log('date:', this.state.formData.date.current?.value);
-    console.log('country:', this.state.formData.country.current?.value);
-    console.log('checkbox1:', this.state.formData.checkbox1.current?.checked);
-    console.log('checkbox2:', this.state.formData.checkbox2.current?.checked);
-    console.log('file:', this.state.formData.file.current?.value);
+    const newCardData: TFormCard = {
+      id: this.state.cardsList.length + 1,
+      name: this.state.formData.name.current?.value || 'no name',
+      gender: this.state.formData.radioMale.current?.checked ? 'male' : 'female',
+      date: this.state.formData.date.current?.value || '',
+      country: this.state.formData.country.current?.value || '',
+      checkbox: this.state.formData.checkbox.current?.checked || false,
+      file: this.state.formData.file.current?.value || '',
+    };
+
     this.setState({
-      cardsList: [
-        ...this.state.cardsList,
-        {
-          id: this.state.cardsList.length + 1,
-          name: this.state.formData.name.current?.value || 'no name',
-          gender: this.state.formData.radioMale.current?.checked ? 'male' : 'female',
-          date: this.state.formData.date.current?.value,
-          country: this.state.formData.country.current?.value,
-          checkbox1: this.state.formData.checkbox1.current?.checked,
-          checkbox2: this.state.formData.checkbox2.current?.checked,
-          file: this.state.formData.file.current?.value,
-        },
-      ],
+      isFormValid: {
+        allFields: true,
+      },
     });
+
+    Object.keys(newCardData).forEach((key) => {
+      // console.log(newCardData[key as keyof TFormCard].toString());
+      // console.log(FORM_REG_EXPS[key]);
+      if (FORM_REG_EXPS[key].test(newCardData[key as keyof TFormCard].toString())) {
+        console.log(key, 'ok');
+      } else {
+        console.log(key, 'error');
+      }
+    });
+
+    this.setState({
+      cardsList: [...this.state.cardsList, newCardData],
+    });
+    // alert('data saved');
     event.currentTarget.reset();
   }
 
@@ -70,9 +84,10 @@ class Forms extends React.Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label>
             Name:&nbsp;
-            <input type="text" ref={this.state.formData.name} />
+            <input type="text" ref={this.state.formData.name} placeholder="Enter your name" />
           </label>
           <br />
+          <p>Gender</p>
           <label>
             <input name="gender" type="radio" ref={this.state.formData.radioMale} />
             male <br />
@@ -101,13 +116,8 @@ class Forms extends React.Component {
           </label>
           <br />
           <label>
-            <input type="checkbox" ref={this.state.formData.checkbox1} />
+            <input type="checkbox" ref={this.state.formData.checkbox} />
             Share all my personal date <br />
-          </label>
-          <br />
-          <label>
-            <input type="checkbox" ref={this.state.formData.checkbox2} />
-            Share my current location <br />
           </label>
           <br />
           <label>
@@ -120,17 +130,21 @@ class Forms extends React.Component {
         <div>
           <hr />
           <h2>Cards list</h2>
-          <div>
-            {this.state.cardsList.map((card) => (
-              <div key={card.id}>
-                <h3>{card.name}</h3>
-                <p>{card.gender}</p>
-                <p>{card.date}</p>
-                <p>{card.country}</p>
-                <p>{card.file}</p>
-              </div>
-            ))}
-          </div>
+          {this.state.cardsList.length === 0 ? (
+            <p>List is empty</p>
+          ) : (
+            <div>
+              {this.state.cardsList.map((card) => (
+                <div key={card.id}>
+                  <h3>{card.name}</h3>
+                  <p>{card.gender}</p>
+                  <p>{card.date}</p>
+                  <p>{card.country}</p>
+                  <p>{card.file}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     );
