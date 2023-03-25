@@ -1,20 +1,11 @@
 import React from 'react';
+import { FORM_VALIDATION_RULES } from '../services/constants';
 import { TFormCard, TFormData } from '../services/types';
 
 type TState = {
   formData: TFormData;
   cardsList: TFormCard[];
   isFormValid: { [index: string]: boolean };
-};
-
-const FORM_REG_EXPS: { [index: string]: RegExp } = {
-  id: /[1-999]/,
-  name: /^[A-Z]{1}([a-zA-Z]){1,}$/,
-  gender: /[1-999]/,
-  date: /[1-999]/,
-  country: /[1-999]/,
-  checkbox: /[1-999]/,
-  file: /[1-999]/,
 };
 
 class Forms extends React.Component {
@@ -46,34 +37,44 @@ class Forms extends React.Component {
     const newCardData: TFormCard = {
       id: this.state.cardsList.length + 1,
       name: this.state.formData.name.current?.value || 'no name',
-      gender: this.state.formData.radioMale.current?.checked ? 'male' : 'female',
+      gender: this.state.formData.radioMale.current?.checked
+        ? 'male'
+        : this.state.formData.radioFemale.current?.checked
+        ? 'female'
+        : '',
       date: this.state.formData.date.current?.value || '',
       country: this.state.formData.country.current?.value || '',
       checkbox: this.state.formData.checkbox.current?.checked || false,
       file: this.state.formData.file.current?.value || '',
     };
 
-    this.setState({
-      isFormValid: {
-        allFields: true,
-      },
-    });
+    const newState = { ...this.state };
+    newState.isFormValid.allFields = true;
 
     Object.keys(newCardData).forEach((key) => {
-      // console.log(newCardData[key as keyof TFormCard].toString());
-      // console.log(FORM_REG_EXPS[key]);
-      if (FORM_REG_EXPS[key].test(newCardData[key as keyof TFormCard].toString())) {
+      if (FORM_VALIDATION_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
         console.log(key, 'ok');
+        newState.isFormValid[key] = true;
       } else {
         console.log(key, 'error');
+        newState.isFormValid[key] = false;
+        newState.isFormValid.allFields = false;
       }
     });
 
-    this.setState({
-      cardsList: [...this.state.cardsList, newCardData],
-    });
-    // alert('data saved');
-    event.currentTarget.reset();
+    console.log(newState.isFormValid.allFields);
+    if (newState.isFormValid.allFields) {
+      this.setState({
+        ...newState,
+        cardsList: [...this.state.cardsList, newCardData],
+      });
+      alert('data saved');
+      event.currentTarget.reset();
+    } else {
+      this.setState({
+        ...newState,
+      });
+    }
   }
 
   render() {
@@ -83,11 +84,15 @@ class Forms extends React.Component {
         <hr />
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label>
-            Name:&nbsp;
+            Name*:&nbsp;
             <input type="text" ref={this.state.formData.name} placeholder="Enter your name" />
           </label>
+          <span>{this.state.isFormValid.name || FORM_VALIDATION_RULES.name.description}</span>
           <br />
-          <p>Gender</p>
+          <p>
+            Gender*:
+            <span>{this.state.isFormValid.gender || FORM_VALIDATION_RULES.gender.description}</span>
+          </p>
           <label>
             <input name="gender" type="radio" ref={this.state.formData.radioMale} />
             male <br />
@@ -99,14 +104,15 @@ class Forms extends React.Component {
           </label>
           <br />
           <label>
-            Date of birth:&nbsp;
+            Date of birth*:&nbsp;
             <input type="date" ref={this.state.formData.date} />
           </label>
+          <span>{this.state.isFormValid.date || FORM_VALIDATION_RULES.date.description}</span>
           <br />
           <label>
-            Country:&nbsp;
-            <select defaultValue="none" ref={this.state.formData.country}>
-              <option value="none" disabled>
+            Country*:&nbsp;
+            <select defaultValue="" ref={this.state.formData.country}>
+              <option value="" disabled>
                 Select country
               </option>
               <option value="Uganda">Uganda</option>
@@ -114,16 +120,21 @@ class Forms extends React.Component {
               <option value="Venezuela">Venezuela</option>
             </select>
           </label>
+          <span>{this.state.isFormValid.country || FORM_VALIDATION_RULES.country.description}</span>
           <br />
           <label>
             <input type="checkbox" ref={this.state.formData.checkbox} />
-            Share all my personal date <br />
+            Share all my personal data*
           </label>
+          <span>
+            {this.state.isFormValid.checkbox || FORM_VALIDATION_RULES.checkbox.description}
+          </span>
           <br />
           <label>
-            Upload file:&nbsp;
+            Upload file*:&nbsp;
             <input type="file" ref={this.state.formData.file} />
           </label>
+          <span>{this.state.isFormValid.file || FORM_VALIDATION_RULES.file.description}</span>
           <br />
           <button>Submit</button>
         </form>
