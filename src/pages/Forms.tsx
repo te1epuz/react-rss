@@ -1,6 +1,7 @@
 import React from 'react';
 import CardsList from '../components/Forms/CardsList';
-import { FORM_VALIDATION_RULES } from '../services/constants';
+import InputField from '../components/Forms/InputField';
+import { FORM_RULES } from '../components/Forms/constants';
 import { TFormCard, TFormData } from '../services/types';
 
 type TState = {
@@ -47,7 +48,7 @@ class Forms extends React.Component {
       country: this.state.formData.country.current?.value || '',
       checkbox: this.state.formData.checkbox.current?.checked || false,
       file: this.state.formData.file.current?.files![0]
-        ? URL.createObjectURL(this.state.formData.file.current?.files![0] as Blob)
+        ? URL.createObjectURL(this.state.formData.file.current?.files[0] as Blob)
         : '',
     };
 
@@ -55,7 +56,7 @@ class Forms extends React.Component {
     newState.isFormValid.allFields = true;
 
     Object.keys(newCardData).forEach((key) => {
-      if (FORM_VALIDATION_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
+      if (FORM_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
         newState.isFormValid[key] = true;
       } else {
         newState.isFormValid[key] = false;
@@ -81,15 +82,21 @@ class Forms extends React.Component {
         <h1>Forms page</h1>
         <hr />
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>
+          <InputField
+            type="text"
+            field="name"
+            isValid={this.state.isFormValid.name}
+            refer={this.state.formData.name}
+          />
+          {/* <label>
             Name*:&nbsp;
             <input type="text" ref={this.state.formData.name} placeholder="Enter your name" />
           </label>
           <span>{this.state.isFormValid.name || FORM_VALIDATION_RULES.name.description}</span>
-          <br />
+          <br /> */}
           <p>
             Gender*:
-            <span>{this.state.isFormValid.gender || FORM_VALIDATION_RULES.gender.description}</span>
+            <span>{this.state.isFormValid.gender || FORM_RULES.gender.description}</span>
           </p>
           <label>
             <input name="gender" type="radio" ref={this.state.formData.radioMale} />
@@ -101,12 +108,19 @@ class Forms extends React.Component {
             female <br />
           </label>
           <br />
-          <label>
+          <InputField
+            type="date"
+            field="date"
+            isValid={this.state.isFormValid.date}
+            refer={this.state.formData.date}
+          />
+          {/* <label>
             Date of birth*:&nbsp;
             <input type="date" ref={this.state.formData.date} />
           </label>
-          <span>{this.state.isFormValid.date || FORM_VALIDATION_RULES.date.description}</span>
-          <br />
+          <span>{this.state.isFormValid.date || FORM_RULES.date.description}</span>
+          <br /> */}
+
           <label>
             Country*:&nbsp;
             <select defaultValue="" ref={this.state.formData.country}>
@@ -118,21 +132,19 @@ class Forms extends React.Component {
               <option value="Venezuela">Venezuela</option>
             </select>
           </label>
-          <span>{this.state.isFormValid.country || FORM_VALIDATION_RULES.country.description}</span>
+          <span>{this.state.isFormValid.country || FORM_RULES.country.description}</span>
           <br />
           <label>
             <input type="checkbox" ref={this.state.formData.checkbox} />
             Share all my personal data*
           </label>
-          <span>
-            {this.state.isFormValid.checkbox || FORM_VALIDATION_RULES.checkbox.description}
-          </span>
+          <span>{this.state.isFormValid.checkbox || FORM_RULES.checkbox.description}</span>
           <br />
           <label>
-            Upload file*:&nbsp;
+            Upload picture*:&nbsp;
             <input type="file" accept=".jpg, .jpeg, .png, .gif" ref={this.state.formData.file} />
           </label>
-          <span>{this.state.isFormValid.file || FORM_VALIDATION_RULES.file.description}</span>
+          <span>{this.state.isFormValid.file || FORM_RULES.file.description}</span>
           <br />
           <button>Submit</button>
         </form>
