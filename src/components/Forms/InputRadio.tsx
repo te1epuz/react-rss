@@ -15,7 +15,7 @@ class InputRadio extends React.Component<TProps> {
       <div className="wrapper__radio">
         <p className="title__radio">{FORM_RULES[field].fieldName}</p>
         {options.map((opt) => (
-          <label key={opt.value}>
+          <label className="label__radio" key={opt.value}>
             <input className="input__radio" name={field} type="radio" ref={opt.refer} />
             {opt.value}
             <br />
