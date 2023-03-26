@@ -7,6 +7,7 @@ import InputFile from '../components/Forms/InputFile';
 import InputRadio from '../components/Forms/InputRadio';
 import InputSelect from '../components/Forms/InputSelect';
 import InputCheckbox from '../components/Forms/InputCheckbox';
+import './Forms.scss';
 
 type TState = {
   formData: TFormData;
@@ -121,7 +122,8 @@ class Forms extends React.Component {
             isValid={this.state.isFormValid.file}
             refer={this.state.formData.file}
           />
-          <button>Submit</button>
+          <p className="submit__note">*required fields</p>
+          <button className="submit__button">Submit</button>
         </form>
         <CardsList cardsList={this.state.cardsList} />
       </main>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FORM_RULES } from './constants';
+import './InputField.scss';
 
 type TProps = {
   type: string;
@@ -14,10 +15,10 @@ class InputField extends React.Component<TProps> {
     return (
       <div>
         <label>
-          {FORM_RULES[field].fieldName}&nbsp;
-          <input type={type} ref={refer} />
+          {FORM_RULES[field].fieldName}
+          <input className="input__field" type={type} ref={refer} />
         </label>
-        <span>{isValid || FORM_RULES[field].description}</span>
+        <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
       </div>
     );
   }

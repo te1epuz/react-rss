@@ -1,5 +1,6 @@
 import React from 'react';
 import { FORM_RULES } from './constants';
+import './InputSelect.scss';
 
 type TProps = {
   field: string;
@@ -15,7 +16,7 @@ class InputSelect extends React.Component<TProps> {
       <div>
         <label>
           {FORM_RULES[field].fieldName}&nbsp;
-          <select defaultValue="" ref={refer}>
+          <select className="input__select" defaultValue="" ref={refer}>
             <option value="" disabled>
               select...
             </option>
@@ -26,7 +27,7 @@ class InputSelect extends React.Component<TProps> {
             ))}
           </select>
         </label>
-        <span>{isValid || FORM_RULES[field].description}</span>
+        <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
       </div>
     );
   }

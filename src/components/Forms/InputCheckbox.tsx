@@ -1,5 +1,6 @@
 import React from 'react';
 import { FORM_RULES } from './constants';
+import './InputCheckbox.scss';
 
 type TProps = {
   field: string;
@@ -13,10 +14,10 @@ class InputCheckbox extends React.Component<TProps> {
     return (
       <div>
         <label>
-          <input type="checkbox" ref={refer} />
+          <input className="input__checkbox" type="checkbox" ref={refer} />
           {FORM_RULES[field].fieldName}&nbsp;
         </label>
-        <span>{isValid || FORM_RULES[field].description}</span>
+        <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
       </div>
     );
   }

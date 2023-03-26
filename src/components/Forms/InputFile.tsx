@@ -1,5 +1,6 @@
 import React from 'react';
 import { FORM_RULES } from './constants';
+import './InputFile.scss';
 
 type TProps = {
   field: string;
@@ -14,9 +15,9 @@ class InputFile extends React.Component<TProps> {
       <div>
         <label>
           {FORM_RULES[field].fieldName}&nbsp;
-          <input type="file" accept=".jpg, .jpeg, .png, .gif" ref={refer} />
+          <input className="input__file" type="file" accept=".jpg, .jpeg, .png, .gif" ref={refer} />
         </label>
-        <span>{isValid || FORM_RULES[field].description}</span>
+        <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
       </div>
     );
   }

@@ -22,12 +22,12 @@ class SearchBar extends React.Component {
       <form role="search">
         <input
           type="search"
-          className="input"
+          className="search__input"
           value={this.state.searchBarText}
           placeholder="Search..."
           onChange={this.handleChange.bind(this)}
         />
-        <button className="button">Search</button>
+        <button className="search__button">Search</button>
       </form>
     );
   }
