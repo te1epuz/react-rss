@@ -6,6 +6,7 @@ import { TFormCard, TFormData } from '../services/types';
 import InputFile from '../components/Forms/InputFile';
 import InputRadio from '../components/Forms/InputRadio';
 import InputSelect from '../components/Forms/InputSelect';
+import InputCheckbox from '../components/Forms/InputCheckbox';
 
 type TState = {
   formData: TFormData;
@@ -110,12 +111,11 @@ class Forms extends React.Component {
             refer={this.state.formData.country}
             options={['Uganda', 'Eritrea', 'Venezuela']}
           />
-          <label>
-            <input type="checkbox" ref={this.state.formData.checkbox} />
-            Share all my personal data*
-          </label>
-          <span>{this.state.isFormValid.checkbox || FORM_RULES.checkbox.description}</span>
-          <br />
+          <InputCheckbox
+            field="checkbox"
+            isValid={this.state.isFormValid.checkbox}
+            refer={this.state.formData.checkbox}
+          />
           <InputFile
             field="file"
             isValid={this.state.isFormValid.file}
