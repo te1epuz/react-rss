@@ -13,7 +13,7 @@ class InputSelect extends React.Component<TProps> {
   render() {
     const { field, isValid, refer, options } = this.props;
     return (
-      <div>
+      <div role="input__select">
         <label>
           {FORM_RULES[field].fieldName}&nbsp;
           <select className="input__select" defaultValue="" ref={refer}>

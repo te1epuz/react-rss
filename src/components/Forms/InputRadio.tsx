@@ -12,7 +12,7 @@ class InputRadio extends React.Component<TProps> {
   render() {
     const { field, isValid, options } = this.props;
     return (
-      <div className="wrapper__radio">
+      <div className="wrapper__radio" role="input__radio">
         <p className="title__radio">{FORM_RULES[field].fieldName}</p>
         {options.map((opt) => (
           <label className="label__radio" key={opt.value}>

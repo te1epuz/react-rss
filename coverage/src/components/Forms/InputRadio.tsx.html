@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -105,21 +105,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -134,22 +134,22 @@ type TProps = {
 };
 &nbsp;
 class InputRadio extends React.Component&lt;TProps&gt; {
-<span class="fstat-no" title="function not covered" >  render() {</span>
-<span class="cstat-no" title="statement not covered" >    const { field, isValid, options } = this.props;</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="wrapper__radio"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;p className="title__radio"&gt;{FORM_RULES[field].fieldName}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {options.map((opt) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;label className="label__radio" key={opt.value}&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;input className="input__radio" name={field} type="radio" ref={opt.refer} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >            {opt.value}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;br /&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/label&gt;</span>
-<span class="cstat-no" title="statement not covered" >        ))}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;p className="errorText"&gt;&amp;nbsp;{isValid || FORM_RULES[field].description}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  render() {
+    const { field, isValid, options } = this.props;
+    return (
+      &lt;div className="wrapper__radio" role="input__radio"&gt;
+        &lt;p className="title__radio"&gt;{FORM_RULES[field].fieldName}&lt;/p&gt;
+        {options.map((opt) =&gt; (
+          &lt;label className="label__radio" key={opt.value}&gt;
+            &lt;input className="input__radio" name={field} type="radio" ref={opt.refer} /&gt;
+            {opt.value}
+            &lt;br /&gt;
+          &lt;/label&gt;
+        ))}
+        &lt;p className="errorText"&gt;&amp;nbsp;{isValid || FORM_RULES[field].description}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
 }
 &nbsp;
 export default InputRadio;
@@ -160,7 +160,7 @@ export default InputRadio;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-26T21:45:44.700Z
+                at 2023-03-26T23:42:39.179Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
