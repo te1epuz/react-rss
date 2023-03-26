@@ -1,6 +1,7 @@
 import React from 'react';
 import { TFormCard } from '../../services/types';
 import FormCard from './FormCard';
+import './CardsList.scss';
 
 type TProps = {
   cardsList: TFormCard[];
@@ -16,7 +17,7 @@ class CardsList extends React.Component<TProps> {
         {cardsList.length === 0 ? (
           <p>List is empty</p>
         ) : (
-          <div>
+          <div className="cardsList">
             {cardsList.map((card) => (
               <FormCard key={card.id} card={card} />
             ))}
