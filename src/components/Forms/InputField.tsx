@@ -13,7 +13,7 @@ class InputField extends React.Component<TProps> {
   render() {
     const { type, field, isValid, refer } = this.props;
     return (
-      <div>
+      <div data-testid="input__field">
         <label>
           {FORM_RULES[field].fieldName}
           <input className="input__field" type={type} ref={refer} />

@@ -12,7 +12,7 @@ class InputCheckbox extends React.Component<TProps> {
   render() {
     const { field, isValid, refer } = this.props;
     return (
-      <div>
+      <div data-testid="input__checkbox">
         <label className="label__checkbox">
           <input className="input__checkbox" type="checkbox" ref={refer} />
           {FORM_RULES[field].fieldName}&nbsp;

@@ -12,7 +12,7 @@ class InputFile extends React.Component<TProps> {
   render() {
     const { field, isValid, refer } = this.props;
     return (
-      <div>
+      <div role="input__file">
         <label>
           {FORM_RULES[field].fieldName}&nbsp;
           <input className="input__file" type="file" accept=".jpg, .jpeg, .png, .gif" ref={refer} />
