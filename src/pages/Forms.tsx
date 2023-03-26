@@ -3,6 +3,7 @@ import CardsList from '../components/Forms/CardsList';
 import InputField from '../components/Forms/InputField';
 import { FORM_RULES } from '../components/Forms/constants';
 import { TFormCard, TFormData } from '../services/types';
+import InputFile from '../components/Forms/InputFile';
 
 type TState = {
   formData: TFormData;
@@ -88,12 +89,6 @@ class Forms extends React.Component {
             isValid={this.state.isFormValid.name}
             refer={this.state.formData.name}
           />
-          {/* <label>
-            Name*:&nbsp;
-            <input type="text" ref={this.state.formData.name} placeholder="Enter your name" />
-          </label>
-          <span>{this.state.isFormValid.name || FORM_VALIDATION_RULES.name.description}</span>
-          <br /> */}
           <p>
             Gender*:
             <span>{this.state.isFormValid.gender || FORM_RULES.gender.description}</span>
@@ -114,13 +109,6 @@ class Forms extends React.Component {
             isValid={this.state.isFormValid.date}
             refer={this.state.formData.date}
           />
-          {/* <label>
-            Date of birth*:&nbsp;
-            <input type="date" ref={this.state.formData.date} />
-          </label>
-          <span>{this.state.isFormValid.date || FORM_RULES.date.description}</span>
-          <br /> */}
-
           <label>
             Country*:&nbsp;
             <select defaultValue="" ref={this.state.formData.country}>
@@ -140,12 +128,11 @@ class Forms extends React.Component {
           </label>
           <span>{this.state.isFormValid.checkbox || FORM_RULES.checkbox.description}</span>
           <br />
-          <label>
-            Upload picture*:&nbsp;
-            <input type="file" accept=".jpg, .jpeg, .png, .gif" ref={this.state.formData.file} />
-          </label>
-          <span>{this.state.isFormValid.file || FORM_RULES.file.description}</span>
-          <br />
+          <InputFile
+            field="file"
+            isValid={this.state.isFormValid.file}
+            refer={this.state.formData.file}
+          />
           <button>Submit</button>
         </form>
         <CardsList cardsList={this.state.cardsList} />
