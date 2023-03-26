@@ -1,4 +1,5 @@
 import React from 'react';
+import CardsList from '../components/Forms/CardsList';
 import { FORM_VALIDATION_RULES } from '../services/constants';
 import { TFormCard, TFormData } from '../services/types';
 
@@ -45,13 +46,10 @@ class Forms extends React.Component {
       date: this.state.formData.date.current?.value || '',
       country: this.state.formData.country.current?.value || '',
       checkbox: this.state.formData.checkbox.current?.checked || false,
-      // file: this.state.formData.file.current?.value || '',
-      file: URL.createObjectURL(this.state.formData.file.current?.files![0] as Blob) || '',
+      file: this.state.formData.file.current?.files![0]
+        ? URL.createObjectURL(this.state.formData.file.current?.files![0] as Blob)
+        : '',
     };
-
-    // const file = this.state.formData.file.current?.files![0];
-    // const img = URL.createObjectURL(file as Blob);
-    // newCardData.file = img;
 
     const newState = { ...this.state };
     newState.isFormValid.allFields = true;
@@ -73,9 +71,7 @@ class Forms extends React.Component {
       alert('data saved');
       event.currentTarget.reset();
     } else {
-      this.setState({
-        ...newState,
-      });
+      this.setState({ ...newState });
     }
   }
 
@@ -140,25 +136,7 @@ class Forms extends React.Component {
           <br />
           <button>Submit</button>
         </form>
-        <div>
-          <hr />
-          <h2>Cards list</h2>
-          {this.state.cardsList.length === 0 ? (
-            <p>List is empty</p>
-          ) : (
-            <div>
-              {this.state.cardsList.map((card) => (
-                <div key={card.id}>
-                  <h3>{card.name}</h3>
-                  <p>{card.gender}</p>
-                  <p>{card.date}</p>
-                  <p>{card.country}</p>
-                  <img src={card.file} alt="" />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        <CardsList cardsList={this.state.cardsList} />
       </main>
     );
   }
