@@ -5,6 +5,7 @@ import { FORM_RULES } from '../components/Forms/constants';
 import { TFormCard, TFormData } from '../services/types';
 import InputFile from '../components/Forms/InputFile';
 import InputRadio from '../components/Forms/InputRadio';
+import InputSelect from '../components/Forms/InputSelect';
 
 type TState = {
   formData: TFormData;
@@ -38,6 +39,9 @@ class Forms extends React.Component {
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const newState = { ...this.state };
+    newState.isFormValid.allFields = true;
+
     const newCardData: TFormCard = {
       id: this.state.cardsList.length + 1,
       name: this.state.formData.name.current?.value || 'no name',
@@ -53,10 +57,6 @@ class Forms extends React.Component {
         ? URL.createObjectURL(this.state.formData.file.current?.files[0] as Blob)
         : '',
     };
-
-    const newState = { ...this.state };
-    newState.isFormValid.allFields = true;
-
     Object.keys(newCardData).forEach((key) => {
       if (FORM_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
         newState.isFormValid[key] = true;
@@ -104,19 +104,12 @@ class Forms extends React.Component {
             isValid={this.state.isFormValid.date}
             refer={this.state.formData.date}
           />
-          <label>
-            Country*:&nbsp;
-            <select defaultValue="" ref={this.state.formData.country}>
-              <option value="" disabled>
-                Select country
-              </option>
-              <option value="Uganda">Uganda</option>
-              <option value="Eritrea">Eritrea</option>
-              <option value="Venezuela">Venezuela</option>
-            </select>
-          </label>
-          <span>{this.state.isFormValid.country || FORM_RULES.country.description}</span>
-          <br />
+          <InputSelect
+            field="country"
+            isValid={this.state.isFormValid.country}
+            refer={this.state.formData.country}
+            options={['Uganda', 'Eritrea', 'Venezuela']}
+          />
           <label>
             <input type="checkbox" ref={this.state.formData.checkbox} />
             Share all my personal data*
