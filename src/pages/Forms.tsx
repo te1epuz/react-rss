@@ -45,24 +45,26 @@ class Forms extends React.Component {
       date: this.state.formData.date.current?.value || '',
       country: this.state.formData.country.current?.value || '',
       checkbox: this.state.formData.checkbox.current?.checked || false,
-      file: this.state.formData.file.current?.value || '',
+      // file: this.state.formData.file.current?.value || '',
+      file: URL.createObjectURL(this.state.formData.file.current?.files![0] as Blob) || '',
     };
+
+    // const file = this.state.formData.file.current?.files![0];
+    // const img = URL.createObjectURL(file as Blob);
+    // newCardData.file = img;
 
     const newState = { ...this.state };
     newState.isFormValid.allFields = true;
 
     Object.keys(newCardData).forEach((key) => {
       if (FORM_VALIDATION_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
-        console.log(key, 'ok');
         newState.isFormValid[key] = true;
       } else {
-        console.log(key, 'error');
         newState.isFormValid[key] = false;
         newState.isFormValid.allFields = false;
       }
     });
 
-    console.log(newState.isFormValid.allFields);
     if (newState.isFormValid.allFields) {
       this.setState({
         ...newState,
@@ -132,7 +134,7 @@ class Forms extends React.Component {
           <br />
           <label>
             Upload file*:&nbsp;
-            <input type="file" ref={this.state.formData.file} />
+            <input type="file" accept=".jpg, .jpeg, .png, .gif" ref={this.state.formData.file} />
           </label>
           <span>{this.state.isFormValid.file || FORM_VALIDATION_RULES.file.description}</span>
           <br />
@@ -151,7 +153,7 @@ class Forms extends React.Component {
                   <p>{card.gender}</p>
                   <p>{card.date}</p>
                   <p>{card.country}</p>
-                  <p>{card.file}</p>
+                  <img src={card.file} alt="" />
                 </div>
               ))}
             </div>
