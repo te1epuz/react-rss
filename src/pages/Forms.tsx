@@ -4,6 +4,7 @@ import InputField from '../components/Forms/InputField';
 import { FORM_RULES } from '../components/Forms/constants';
 import { TFormCard, TFormData } from '../services/types';
 import InputFile from '../components/Forms/InputFile';
+import InputRadio from '../components/Forms/InputRadio';
 
 type TState = {
   formData: TFormData;
@@ -89,20 +90,14 @@ class Forms extends React.Component {
             isValid={this.state.isFormValid.name}
             refer={this.state.formData.name}
           />
-          <p>
-            Gender*:
-            <span>{this.state.isFormValid.gender || FORM_RULES.gender.description}</span>
-          </p>
-          <label>
-            <input name="gender" type="radio" ref={this.state.formData.radioMale} />
-            male <br />
-          </label>
-          <br />
-          <label>
-            <input name="gender" type="radio" ref={this.state.formData.radioFemale} />
-            female <br />
-          </label>
-          <br />
+          <InputRadio
+            field="gender"
+            isValid={this.state.isFormValid.gender}
+            options={[
+              { value: 'male', refer: this.state.formData.radioMale },
+              { value: 'female', refer: this.state.formData.radioFemale },
+            ]}
+          />
           <InputField
             type="date"
             field="date"
