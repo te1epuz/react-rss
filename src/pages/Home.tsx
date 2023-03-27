@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from '../components/Home/SearchBar';
 import ResultsList from '../components/Home/ResultsList';
-import { getAllProducts } from '../services/api';
+import data from '../assets/data.json';
 import { TProduct } from '../services/types';
 
 type TState = {
@@ -13,9 +13,8 @@ class Home extends React.Component {
     searchResultsList: null,
   };
 
-  async componentDidMount() {
-    const result = await getAllProducts();
-    this.setState({ searchResultsList: result.products });
+  componentDidMount() {
+    this.setState({ searchResultsList: data.products });
   }
 
   render() {

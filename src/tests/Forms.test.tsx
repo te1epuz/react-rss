@@ -55,8 +55,14 @@ describe('Forms', () => {
     fireEvent.change(inputName, { target: { value: 'Test' } });
     const inputGender = screen.getByLabelText('male');
     fireEvent.change(inputGender, { target: { checked: true } });
-    const inputFile = screen.getByLabelText('Upload picture*:');
+    const inputDate = screen.getByLabelText('Date of birth*:');
+    fireEvent.change(inputDate, { target: { value: 'Test' } });
+    const inputCountry = screen.getByLabelText('Country*:');
+    fireEvent.change(inputCountry, { target: { value: 'Test' } });
+    const inputCheckbox = screen.getByLabelText('Share all my personal data*');
+    fireEvent.change(inputCheckbox, { target: { checked: true } });
 
+    const inputFile = screen.getByLabelText('Upload picture*:');
     fireEvent.change(inputFile, { target: { files: [''] } });
 
     const button = screen.getByRole('button') as HTMLButtonElement;

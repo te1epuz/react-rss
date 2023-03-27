@@ -2,7 +2,6 @@ import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Home from '../pages/Home';
 import { BrowserRouter } from 'react-router-dom';
-import { getAllProducts } from '../services/api';
 import ResultsList from '../components/Home/ResultsList';
 
 const resultsArray = [
@@ -33,28 +32,6 @@ describe('Home', () => {
         level: 1,
       })
     ).toHaveTextContent('Home page');
-  });
-
-  it('Renders loading', () => {
-    render(
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>
-    );
-    expect(
-      screen.getByRole('heading', {
-        level: 3,
-      })
-    ).toHaveTextContent('loading...');
-  });
-
-  it('gets list of products form server', () => {
-    render(
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>
-    );
-    expect(getAllProducts).toHaveBeenCalled;
   });
 
   it('Renders list of results', () => {
