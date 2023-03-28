@@ -1,0 +1,10 @@
+.input__file::-webkit-file-upload-button {
+  padding: 12px 20px;
+  font-size: 2em;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(246, 246, 246);
+  }
+}
