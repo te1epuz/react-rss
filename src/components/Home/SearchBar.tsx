@@ -1,36 +1,25 @@
-import React from 'react';
+import { useEffect } from 'react';
 import './SearchBar.scss';
 
-class SearchBar extends React.Component {
-  state = {
-    searchBarText: localStorage.getItem('searchBarText') || '',
-  };
+export default function SearchBar() {
+  let searchBarText = localStorage.getItem('searchBarText') || '';
 
-  handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      searchBarText: event.target.value,
-    });
-    // localStorage.setItem('searchBarText', event.target.value); // this will allow to save text even on page reload
-  }
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('searchBarText', searchBarText);
+    };
+  });
 
-  componentWillUnmount() {
-    localStorage.setItem('searchBarText', this.state.searchBarText);
-  }
-
-  render() {
-    return (
-      <form role="search">
-        <input
-          type="search"
-          className="search__input"
-          value={this.state.searchBarText}
-          placeholder="Search..."
-          onChange={this.handleChange.bind(this)}
-        />
-        <button className="search__button">Search</button>
-      </form>
-    );
-  }
+  return (
+    <form role="search">
+      <input
+        type="search"
+        className="search__input"
+        defaultValue={searchBarText}
+        placeholder="Search..."
+        onChange={(event) => (searchBarText = event.target.value)}
+      />
+      <button className="search__button">Search</button>
+    </form>
+  );
 }
-
-export default SearchBar;
