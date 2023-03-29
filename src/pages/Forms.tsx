@@ -1,134 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CardsList from '../components/Forms/CardsList';
 import InputField from '../components/Forms/InputField';
 import { FORM_RULES } from '../components/Forms/constants';
-import { TFormCard, TFormData } from '../services/types';
+import { TFormCard } from '../services/types';
 import InputFile from '../components/Forms/InputFile';
 import InputRadio from '../components/Forms/InputRadio';
 import InputSelect from '../components/Forms/InputSelect';
 import InputCheckbox from '../components/Forms/InputCheckbox';
 import './Forms.scss';
+import boggart from '../assets/boggart.gif';
 
-type TState = {
-  formData: TFormData;
-  cardsList: TFormCard[];
-  isFormValid: { [index: string]: boolean };
-};
+export default function Forms() {
+  const [name, setName] = useState('');
+  const [gender, setGender] = useState('');
+  const [date, setDate] = useState('');
+  const [country, setCountry] = useState('');
+  const [checkbox, setCheckbox] = useState(false);
+  const [file, setFile] = useState<File>();
+  const [cardsList, setCardsList] = useState<TFormCard[]>([]);
+  const [isFormValid, setIsFormValid] = useState<{ [index: string]: boolean }>({
+    allFields: true,
+    id: true,
+    name: true,
+    gender: true,
+    date: true,
+    country: true,
+    checkbox: true,
+    file: true,
+  });
 
-class Forms extends React.Component {
-  state: TState = {
-    formData: {
-      name: React.createRef(),
-      radioMale: React.createRef(),
-      radioFemale: React.createRef(),
-      date: React.createRef(),
-      country: React.createRef(),
-      checkbox: React.createRef(),
-      file: React.createRef(),
-    },
-    cardsList: [],
-    isFormValid: {
-      allFields: true,
-      id: true,
-      name: true,
-      gender: true,
-      date: true,
-      country: true,
-      checkbox: true,
-      file: true,
-    },
-  };
-
-  handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const newState = { ...this.state };
-    newState.isFormValid.allFields = true;
-
+    const newValidation = { ...isFormValid };
+    newValidation.allFields = true;
     const newCardData: TFormCard = {
-      id: this.state.cardsList.length + 1,
-      name: this.state.formData.name.current?.value || 'no name',
-      gender: this.state.formData.radioMale.current?.checked
-        ? 'male'
-        : this.state.formData.radioFemale.current?.checked
-        ? 'female'
-        : '',
-      date: this.state.formData.date.current?.value || '',
-      country: this.state.formData.country.current?.value || '',
-      checkbox: this.state.formData.checkbox.current?.checked || false,
-      file: this.state.formData.file.current?.files![0]
-        ? URL.createObjectURL(this.state.formData.file.current?.files[0] as Blob)
-        : '',
+      id: cardsList.length + 1,
+      name,
+      gender,
+      date,
+      country,
+      checkbox,
+      file: file ? URL.createObjectURL(file as Blob) : boggart,
     };
+
     Object.keys(newCardData).forEach((key) => {
       if (FORM_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
-        newState.isFormValid[key] = true;
+        newValidation[key] = true;
       } else {
-        newState.isFormValid[key] = false;
-        newState.isFormValid.allFields = false;
+        newValidation[key] = false;
+        newValidation.allFields = false;
       }
     });
 
-    if (newState.isFormValid.allFields) {
-      this.setState({
-        ...newState,
-        cardsList: [...this.state.cardsList, newCardData],
-      });
+    if (newValidation.allFields) {
+      setIsFormValid(newValidation);
+      setCardsList((prev) => [...prev, newCardData]);
       alert('data saved');
       event.currentTarget.reset();
     } else {
-      this.setState({ ...newState });
+      setIsFormValid(newValidation);
     }
   }
 
-  render() {
-    return (
-      <main>
-        <h1>Forms page</h1>
-        <hr />
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <InputField
-            type="text"
-            field="name"
-            isValid={this.state.isFormValid.name}
-            refer={this.state.formData.name}
-          />
-          <InputRadio
-            field="gender"
-            isValid={this.state.isFormValid.gender}
-            options={[
-              { value: 'male', refer: this.state.formData.radioMale },
-              { value: 'female', refer: this.state.formData.radioFemale },
-            ]}
-          />
-          <InputField
-            type="date"
-            field="date"
-            isValid={this.state.isFormValid.date}
-            refer={this.state.formData.date}
-          />
-          <InputSelect
-            field="country"
-            isValid={this.state.isFormValid.country}
-            refer={this.state.formData.country}
-            options={['Uganda', 'Eritrea', 'Venezuela']}
-          />
-          <InputCheckbox
-            field="checkbox"
-            isValid={this.state.isFormValid.checkbox}
-            refer={this.state.formData.checkbox}
-          />
-          <InputFile
-            field="file"
-            isValid={this.state.isFormValid.file}
-            refer={this.state.formData.file}
-          />
-          <p className="submit__note">*required fields</p>
-          <button className="submit__button">Submit</button>
-        </form>
-        <CardsList cardsList={this.state.cardsList} />
-      </main>
-    );
-  }
+  return (
+    <main>
+      <h1>Forms page</h1>
+      <hr />
+      <form onSubmit={handleSubmit}>
+        <InputField type="text" field="name" isValid={isFormValid.name} setValue={setName} />
+        <InputRadio
+          field="gender"
+          isValid={isFormValid.gender}
+          options={['male', 'female']}
+          setValue={setGender}
+        />
+        <InputField type="date" field="date" isValid={isFormValid.date} setValue={setDate} />
+        <InputSelect
+          field="country"
+          isValid={isFormValid.country}
+          options={['Uganda', 'Eritrea', 'Venezuela']}
+          setValue={setCountry}
+        />
+        <InputCheckbox field="checkbox" isValid={isFormValid.checkbox} setValue={setCheckbox} />
+        <InputFile field="file" isValid={isFormValid.file} setValue={setFile} />
+        <p className="submit__note">*required fields</p>
+        <button className="submit__button">Submit</button>
+      </form>
+      <CardsList cardsList={cardsList} />
+    </main>
+  );
 }
-
-export default Forms;

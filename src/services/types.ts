@@ -31,7 +31,7 @@ export type TFormData = {
 export type TFormCard = {
   id: number;
   name: string;
-  gender: 'male' | 'female' | '';
+  gender: string;
   date: string;
   country: string;
   checkbox: boolean;

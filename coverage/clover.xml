@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679876371137" clover="3.2.0">
-  <project timestamp="1679876371137" name="All files">
-    <metrics statements="633" coveredstatements="626" conditionals="50" coveredconditionals="48" methods="26" coveredmethods="26" elements="709" coveredelements="700" complexity="0" loc="633" ncloc="633" packages="5" files="19" classes="19"/>
+<coverage generated="1680129814012" clover="3.2.0">
+  <project timestamp="1680129814012" name="All files">
+    <metrics statements="516" coveredstatements="512" conditionals="45" coveredconditionals="43" methods="26" coveredmethods="24" elements="587" coveredelements="579" complexity="0" loc="516" ncloc="516" packages="5" files="19" classes="19"/>
     <package name="src">
-      <metrics statements="26" coveredstatements="26" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="21" coveredstatements="21" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="D:\RSS\react-rss\src\App.tsx">
-        <metrics statements="26" coveredstatements="26" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="21" coveredstatements="21" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -14,9 +14,9 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
@@ -27,17 +27,23 @@
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="60" coveredstatements="60" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
+      <metrics statements="44" coveredstatements="44" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
       <file name="Footer.tsx" path="D:\RSS\react-rss\src\components\Footer.tsx">
-        <metrics statements="14" coveredstatements="14" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="Header.tsx" path="D:\RSS\react-rss\src\components\Header.tsx">
+        <metrics statements="23" coveredstatements="23" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -52,23 +58,6 @@
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-      </file>
-      <file name="Header.tsx" path="D:\RSS\react-rss\src\components\Header.tsx">
-        <metrics statements="28" coveredstatements="28" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -78,38 +67,28 @@
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
       </file>
       <file name="Layout.tsx" path="D:\RSS\react-rss\src\components\Layout.tsx">
-        <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Forms">
-      <metrics statements="243" coveredstatements="243" conditionals="18" coveredconditionals="18" methods="8" coveredmethods="8"/>
+      <metrics statements="232" coveredstatements="232" conditionals="21" coveredconditionals="21" methods="13" coveredmethods="11"/>
       <file name="CardsList.tsx" path="D:\RSS\react-rss\src\components\Forms\CardsList.tsx">
-        <metrics statements="31" coveredstatements="31" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -118,32 +97,26 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="18" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="9" type="stmt"/>
-        <line num="26" count="9" type="stmt"/>
-        <line num="27" count="9" type="stmt"/>
-        <line num="28" count="9" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
+        <line num="23" count="11" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
       </file>
       <file name="FormCard.tsx" path="D:\RSS\react-rss\src\components\Forms\FormCard.tsx">
-        <metrics statements="28" coveredstatements="28" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="22" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -151,9 +124,9 @@
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
@@ -166,15 +139,9 @@
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
       </file>
       <file name="InputCheckbox.tsx" path="D:\RSS\react-rss\src\components\Forms\InputCheckbox.tsx">
-        <metrics statements="26" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -185,25 +152,24 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="9" type="stmt"/>
-        <line num="18" count="9" type="stmt"/>
-        <line num="19" count="9" type="stmt"/>
-        <line num="20" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="11" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="21" count="11" type="stmt"/>
+        <line num="22" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="11" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
       </file>
       <file name="InputField.tsx" path="D:\RSS\react-rss\src\components\Forms\InputField.tsx">
-        <metrics statements="27" coveredstatements="27" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="28" coveredstatements="28" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -215,25 +181,26 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="16" type="stmt"/>
-        <line num="15" count="16" type="stmt"/>
-        <line num="16" count="16" type="stmt"/>
-        <line num="17" count="16" type="stmt"/>
-        <line num="18" count="16" type="stmt"/>
-        <line num="19" count="16" type="stmt"/>
-        <line num="20" count="16" type="stmt"/>
-        <line num="21" count="16" type="cond" truecount="1" falsecount="0"/>
-        <line num="22" count="16" type="stmt"/>
-        <line num="23" count="16" type="stmt"/>
-        <line num="24" count="16" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="12" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="20" type="stmt"/>
+        <line num="14" count="20" type="stmt"/>
+        <line num="15" count="20" type="stmt"/>
+        <line num="16" count="20" type="stmt"/>
+        <line num="17" count="20" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="20" count="20" type="stmt"/>
+        <line num="21" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="20" type="stmt"/>
+        <line num="23" count="20" type="stmt"/>
+        <line num="24" count="20" type="stmt"/>
+        <line num="25" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="20" type="stmt"/>
+        <line num="27" count="20" type="stmt"/>
+        <line num="28" count="20" type="stmt"/>
       </file>
       <file name="InputFile.tsx" path="D:\RSS\react-rss\src\components\Forms\InputFile.tsx">
-        <metrics statements="26" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="26" coveredstatements="26" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -244,25 +211,25 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="9" type="stmt"/>
-        <line num="18" count="9" type="stmt"/>
-        <line num="19" count="9" type="stmt"/>
-        <line num="20" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="11" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="20" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="11" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
+        <line num="23" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
       </file>
       <file name="InputRadio.tsx" path="D:\RSS\react-rss\src\components\Forms\InputRadio.tsx">
-        <metrics statements="30" coveredstatements="30" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="32" coveredstatements="32" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -274,28 +241,30 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="18" count="18" type="stmt"/>
-        <line num="19" count="18" type="stmt"/>
-        <line num="20" count="18" type="stmt"/>
-        <line num="21" count="18" type="stmt"/>
-        <line num="22" count="18" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="24" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="25" count="9" type="stmt"/>
-        <line num="26" count="9" type="stmt"/>
-        <line num="27" count="9" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
+        <line num="12" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="14" count="14" type="stmt"/>
+        <line num="15" count="14" type="stmt"/>
+        <line num="16" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="26" type="stmt"/>
+        <line num="18" count="26" type="stmt"/>
+        <line num="19" count="26" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
+        <line num="21" count="26" type="stmt"/>
+        <line num="22" count="26" type="stmt"/>
+        <line num="23" count="26" type="stmt"/>
+        <line num="24" count="26" type="stmt"/>
+        <line num="25" count="26" type="stmt"/>
+        <line num="26" count="26" type="stmt"/>
+        <line num="27" count="26" type="stmt"/>
+        <line num="28" count="14" type="stmt"/>
+        <line num="29" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="14" type="stmt"/>
+        <line num="31" count="14" type="stmt"/>
+        <line num="32" count="14" type="stmt"/>
       </file>
       <file name="InputSelect.tsx" path="D:\RSS\react-rss\src\components\Forms\InputSelect.tsx">
-        <metrics statements="36" coveredstatements="36" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="35" coveredstatements="35" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -307,31 +276,30 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="9" type="stmt"/>
-        <line num="18" count="9" type="stmt"/>
-        <line num="19" count="9" type="stmt"/>
-        <line num="20" count="9" type="stmt"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="22" count="9" type="stmt"/>
-        <line num="23" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="24" count="27" type="stmt"/>
-        <line num="25" count="27" type="stmt"/>
-        <line num="26" count="27" type="stmt"/>
-        <line num="27" count="9" type="stmt"/>
-        <line num="28" count="9" type="stmt"/>
-        <line num="29" count="9" type="stmt"/>
-        <line num="30" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="31" count="9" type="stmt"/>
-        <line num="32" count="9" type="stmt"/>
-        <line num="33" count="9" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="12" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="20" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="11" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
+        <line num="23" count="11" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="33" type="stmt"/>
+        <line num="27" count="33" type="stmt"/>
+        <line num="28" count="33" type="stmt"/>
+        <line num="29" count="11" type="stmt"/>
+        <line num="30" count="11" type="stmt"/>
+        <line num="31" count="11" type="stmt"/>
+        <line num="32" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="11" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="35" count="11" type="stmt"/>
       </file>
       <file name="constants.ts" path="D:\RSS\react-rss\src\components\Forms\constants.ts">
         <metrics statements="39" coveredstatements="39" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -373,13 +341,13 @@
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="39" count="92" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="107" type="cond" truecount="1" falsecount="0"/>
       </file>
     </package>
     <package name="src.components.Home">
-      <metrics statements="109" coveredstatements="109" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="6"/>
+      <metrics statements="88" coveredstatements="88" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
       <file name="ResultsCard.tsx" path="D:\RSS\react-rss\src\components\Home\ResultsCard.tsx">
-        <metrics statements="47" coveredstatements="47" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="42" coveredstatements="42" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -388,8 +356,8 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="23" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="23" type="stmt"/>
         <line num="11" count="23" type="stmt"/>
         <line num="12" count="23" type="stmt"/>
         <line num="13" count="23" type="stmt"/>
@@ -422,14 +390,74 @@
         <line num="40" count="23" type="stmt"/>
         <line num="41" count="23" type="stmt"/>
         <line num="42" count="23" type="stmt"/>
-        <line num="43" count="23" type="stmt"/>
-        <line num="44" count="23" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
       </file>
       <file name="ResultsList.tsx" path="D:\RSS\react-rss\src\components\Home\ResultsList.tsx">
-        <metrics statements="26" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="21" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+      </file>
+      <file name="SearchBar.tsx" path="D:\RSS\react-rss\src\components\Home\SearchBar.tsx">
+        <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="20" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages">
+      <metrics statements="131" coveredstatements="127" conditionals="13" coveredconditionals="11" methods="5" coveredmethods="5"/>
+      <file name="About.tsx" path="D:\RSS\react-rss\src\pages\About.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+      <file name="Forms.tsx" path="D:\RSS\react-rss\src\pages\Forms.tsx">
+        <metrics statements="92" coveredstatements="88" conditionals="7" coveredconditionals="5" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -440,271 +468,126 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="20" count="10" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="23" count="10" type="stmt"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="25" count="10" type="stmt"/>
+        <line num="26" count="10" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="29" count="10" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="31" count="10" type="stmt"/>
+        <line num="32" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="47" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="48" count="7" type="stmt"/>
+        <line num="49" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="50" count="14" type="stmt"/>
+        <line num="51" count="14" type="stmt"/>
+        <line num="52" count="14" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="55" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="62" count="3" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="64" count="10" type="stmt"/>
+        <line num="65" count="10" type="stmt"/>
+        <line num="66" count="10" type="stmt"/>
+        <line num="67" count="10" type="stmt"/>
+        <line num="68" count="10" type="stmt"/>
+        <line num="69" count="10" type="stmt"/>
+        <line num="70" count="10" type="stmt"/>
+        <line num="71" count="10" type="stmt"/>
+        <line num="72" count="10" type="stmt"/>
+        <line num="73" count="10" type="stmt"/>
+        <line num="74" count="10" type="stmt"/>
+        <line num="75" count="10" type="stmt"/>
+        <line num="76" count="10" type="stmt"/>
+        <line num="77" count="10" type="stmt"/>
+        <line num="78" count="10" type="stmt"/>
+        <line num="79" count="10" type="stmt"/>
+        <line num="80" count="10" type="stmt"/>
+        <line num="81" count="10" type="stmt"/>
+        <line num="82" count="10" type="stmt"/>
+        <line num="83" count="10" type="stmt"/>
+        <line num="84" count="10" type="stmt"/>
+        <line num="85" count="10" type="stmt"/>
+        <line num="86" count="10" type="stmt"/>
+        <line num="87" count="10" type="stmt"/>
+        <line num="88" count="10" type="stmt"/>
+        <line num="89" count="10" type="stmt"/>
+        <line num="90" count="10" type="stmt"/>
+        <line num="91" count="10" type="stmt"/>
+        <line num="92" count="10" type="stmt"/>
+      </file>
+      <file name="Home.tsx" path="D:\RSS\react-rss\src\pages\Home.tsx">
+        <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
-        <line num="17" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="18" count="22" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-      </file>
-      <file name="SearchBar.tsx" path="D:\RSS\react-rss\src\components\Home\SearchBar.tsx">
-        <metrics statements="36" coveredstatements="36" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="20" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="7" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="23" count="7" type="stmt"/>
-        <line num="24" count="7" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="26" count="7" type="stmt"/>
-        <line num="27" count="7" type="stmt"/>
-        <line num="28" count="7" type="stmt"/>
-        <line num="29" count="7" type="stmt"/>
-        <line num="30" count="7" type="stmt"/>
-        <line num="31" count="7" type="stmt"/>
-        <line num="32" count="7" type="stmt"/>
-        <line num="33" count="7" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.pages">
-      <metrics statements="195" coveredstatements="188" conditionals="21" coveredconditionals="19" methods="8" coveredmethods="8"/>
-      <file name="About.tsx" path="D:\RSS\react-rss\src\pages\About.tsx">
-        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-      </file>
-      <file name="Forms.tsx" path="D:\RSS\react-rss\src\pages\Forms.tsx">
-        <metrics statements="134" coveredstatements="127" conditionals="14" coveredconditionals="12" methods="3" coveredmethods="3"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
         <line num="18" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
-        <line num="26" count="4" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="41" count="4" type="stmt"/>
-        <line num="42" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="43" count="3" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="47" count="3" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
-        <line num="49" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="50" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="51" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="52" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="53" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
-        <line num="57" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="58" count="3" type="cond" truecount="0" falsecount="1"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="3" type="stmt"/>
-        <line num="61" count="3" type="stmt"/>
-        <line num="62" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="63" count="21" type="cond" truecount="1" falsecount="0"/>
-        <line num="64" count="7" type="stmt"/>
-        <line num="65" count="21" type="cond" truecount="1" falsecount="0"/>
-        <line num="66" count="14" type="stmt"/>
-        <line num="67" count="14" type="stmt"/>
-        <line num="68" count="14" type="stmt"/>
-        <line num="69" count="3" type="stmt"/>
-        <line num="70" count="3" type="stmt"/>
-        <line num="71" count="3" type="cond" truecount="0" falsecount="1"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="78" count="3" type="stmt"/>
-        <line num="79" count="3" type="stmt"/>
-        <line num="80" count="3" type="stmt"/>
-        <line num="81" count="3" type="stmt"/>
-        <line num="82" count="4" type="stmt"/>
-        <line num="83" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="84" count="7" type="stmt"/>
-        <line num="85" count="7" type="stmt"/>
-        <line num="86" count="7" type="stmt"/>
-        <line num="87" count="7" type="stmt"/>
-        <line num="88" count="7" type="stmt"/>
-        <line num="89" count="7" type="stmt"/>
-        <line num="90" count="7" type="stmt"/>
-        <line num="91" count="7" type="stmt"/>
-        <line num="92" count="7" type="stmt"/>
-        <line num="93" count="7" type="stmt"/>
-        <line num="94" count="7" type="stmt"/>
-        <line num="95" count="7" type="stmt"/>
-        <line num="96" count="7" type="stmt"/>
-        <line num="97" count="7" type="stmt"/>
-        <line num="98" count="7" type="stmt"/>
-        <line num="99" count="7" type="stmt"/>
-        <line num="100" count="7" type="stmt"/>
-        <line num="101" count="7" type="stmt"/>
-        <line num="102" count="7" type="stmt"/>
-        <line num="103" count="7" type="stmt"/>
-        <line num="104" count="7" type="stmt"/>
-        <line num="105" count="7" type="stmt"/>
-        <line num="106" count="7" type="stmt"/>
-        <line num="107" count="7" type="stmt"/>
-        <line num="108" count="7" type="stmt"/>
-        <line num="109" count="7" type="stmt"/>
-        <line num="110" count="7" type="stmt"/>
-        <line num="111" count="7" type="stmt"/>
-        <line num="112" count="7" type="stmt"/>
-        <line num="113" count="7" type="stmt"/>
-        <line num="114" count="7" type="stmt"/>
-        <line num="115" count="7" type="stmt"/>
-        <line num="116" count="7" type="stmt"/>
-        <line num="117" count="7" type="stmt"/>
-        <line num="118" count="7" type="stmt"/>
-        <line num="119" count="7" type="stmt"/>
-        <line num="120" count="7" type="stmt"/>
-        <line num="121" count="7" type="stmt"/>
-        <line num="122" count="7" type="stmt"/>
-        <line num="123" count="7" type="stmt"/>
-        <line num="124" count="7" type="stmt"/>
-        <line num="125" count="7" type="stmt"/>
-        <line num="126" count="7" type="stmt"/>
-        <line num="127" count="7" type="stmt"/>
-        <line num="128" count="7" type="stmt"/>
-        <line num="129" count="7" type="stmt"/>
-        <line num="130" count="7" type="stmt"/>
-        <line num="131" count="7" type="stmt"/>
-        <line num="132" count="4" type="stmt"/>
-        <line num="133" count="1" type="stmt"/>
-        <line num="134" count="1" type="stmt"/>
       </file>
-      <file name="Home.tsx" path="D:\RSS\react-rss\src\pages\Home.tsx">
-        <metrics statements="35" coveredstatements="35" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>
-        <line num="1" count="1" type="stmt"/>
+      <file name="NotFound.tsx" path="D:\RSS\react-rss\src\pages\NotFound.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
-        <line num="25" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="26" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-      </file>
-      <file name="NotFound.tsx" path="D:\RSS\react-rss\src\pages\NotFound.tsx">
-        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
       </file>
     </package>
   </project>

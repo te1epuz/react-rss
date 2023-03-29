@@ -5,26 +5,28 @@ import './InputRadio.scss';
 type TProps = {
   field: string;
   isValid: boolean;
-  options: { value: string; refer: React.RefObject<HTMLInputElement> }[];
+  options: string[];
+  setValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
-class InputRadio extends React.Component<TProps> {
-  render() {
-    const { field, isValid, options } = this.props;
-    return (
-      <div className="wrapper__radio" role="input__radio">
-        <p className="title__radio">{FORM_RULES[field].fieldName}</p>
-        {options.map((opt) => (
-          <label className="label__radio" key={opt.value}>
-            <input className="input__radio" name={field} type="radio" ref={opt.refer} />
-            {opt.value}
-            <br />
-          </label>
-        ))}
-        <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
-      </div>
-    );
-  }
+export default function InputRadio({ field, isValid, options, setValue }: TProps) {
+  return (
+    <div className="wrapper__radio" role="input__radio">
+      <p className="title__radio">{FORM_RULES[field].fieldName}</p>
+      {options.map((opt) => (
+        <label className="label__radio" key={opt}>
+          <input
+            className="input__radio"
+            name={field}
+            type="radio"
+            value={opt}
+            onChange={() => setValue(opt)}
+          />
+          {opt}
+          <br />
+        </label>
+      ))}
+      <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
+    </div>
+  );
 }
-
-export default InputRadio;

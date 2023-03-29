@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
@@ -88,8 +88,7 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -99,22 +98,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import { FORM_RULES } from './constants';
 import './InputCheckbox.scss';
@@ -122,25 +120,24 @@ import './InputCheckbox.scss';
 type TProps = {
   field: string;
   isValid: boolean;
-  refer: React.RefObject&lt;HTMLInputElement&gt;;
+  setValue: React.Dispatch&lt;React.SetStateAction&lt;boolean&gt;&gt;;
 };
 &nbsp;
-class InputCheckbox extends React.Component&lt;TProps&gt; {
-  render() {
-    const { field, isValid, refer } = this.props;
-    return (
-      &lt;div data-testid="input__checkbox"&gt;
-        &lt;label className="label__checkbox"&gt;
-          &lt;input className="input__checkbox" type="checkbox" ref={refer} /&gt;
-          {FORM_RULES[field].fieldName}&amp;nbsp;
-        &lt;/label&gt;
-        &lt;p className="errorText"&gt;&amp;nbsp;{isValid || FORM_RULES[field].description}&lt;/p&gt;
-      &lt;/div&gt;
-    );
-  }
+export default function InputCheckbox({ field, isValid, setValue }: TProps) {
+  return (
+    &lt;div data-testid="input__checkbox"&gt;
+      &lt;label className="label__checkbox"&gt;
+        &lt;input
+          className="input__checkbox"
+          type="checkbox"
+          onChange={<span class="fstat-no" title="function not covered" >(event) =&gt; setValue(event.target.checked)}</span>
+        /&gt;
+        {FORM_RULES[field].fieldName}&amp;nbsp;
+      &lt;/label&gt;
+      &lt;p className="errorText"&gt;&amp;nbsp;{isValid || FORM_RULES[field].description}&lt;/p&gt;
+    &lt;/div&gt;
+  );
 }
-&nbsp;
-export default InputCheckbox;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -148,7 +145,7 @@ export default InputCheckbox;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-27T00:19:31.108Z
+                at 2023-03-29T22:43:33.983Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
