@@ -6,10 +6,11 @@ type TProps = {
   field: string;
   isValid: boolean;
   options: string[];
+  value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function InputRadio({ field, isValid, options, setValue }: TProps) {
+export default function InputRadio({ field, isValid, options, value, setValue }: TProps) {
   return (
     <div className="wrapper__radio" role="input__radio">
       <p className="title__radio">{FORM_RULES[field].fieldName}</p>
@@ -20,6 +21,7 @@ export default function InputRadio({ field, isValid, options, setValue }: TProps
             name={field}
             type="radio"
             value={opt}
+            checked={opt === value}
             onChange={() => setValue(opt)}
           />
           {opt}

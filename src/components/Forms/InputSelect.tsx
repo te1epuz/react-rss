@@ -6,17 +6,18 @@ type TProps = {
   field: string;
   isValid: boolean;
   options: string[];
+  value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function InputSelect({ field, isValid, options, setValue }: TProps) {
+export default function InputSelect({ field, isValid, options, value, setValue }: TProps) {
   return (
     <div role="input__select">
       <label>
         {FORM_RULES[field].fieldName}&nbsp;
         <select
           className="input__select"
-          defaultValue=""
+          value={value}
           onChange={(event) => setValue(event.target.value)}
         >
           <option value="" disabled>

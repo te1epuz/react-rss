@@ -6,10 +6,11 @@ type TProps = {
   type: string;
   field: string;
   isValid: boolean;
+  value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function InputField({ type, field, isValid, setValue }: TProps) {
+export default function InputField({ type, field, isValid, value, setValue }: TProps) {
   return (
     <div>
       <label>
@@ -18,6 +19,7 @@ export default function InputField({ type, field, isValid, setValue }: TProps) {
           className="input__field"
           type={type}
           placeholder="Enter name"
+          value={value}
           onChange={(event) => setValue(event.target.value)}
           data-testid="input__field"
         />

@@ -53,9 +53,15 @@ export default function Forms() {
     });
 
     if (newValidation.allFields) {
-      setIsFormValid(newValidation);
       setCardsList((prev) => [...prev, newCardData]);
       alert('data saved');
+      setIsFormValid(newValidation);
+      setName('');
+      setGender('');
+      setDate('');
+      setCountry('');
+      setCheckbox(false);
+      setFile(undefined);
       event.currentTarget.reset();
     } else {
       setIsFormValid(newValidation);
@@ -67,21 +73,40 @@ export default function Forms() {
       <h1>Forms page</h1>
       <hr />
       <form onSubmit={handleSubmit}>
-        <InputField type="text" field="name" isValid={isFormValid.name} setValue={setName} />
+        <InputField
+          type="text"
+          field="name"
+          isValid={isFormValid.name}
+          value={name}
+          setValue={setName}
+        />
         <InputRadio
           field="gender"
           isValid={isFormValid.gender}
           options={['male', 'female']}
+          value={gender}
           setValue={setGender}
         />
-        <InputField type="date" field="date" isValid={isFormValid.date} setValue={setDate} />
+        <InputField
+          type="date"
+          field="date"
+          isValid={isFormValid.date}
+          value={date}
+          setValue={setDate}
+        />
         <InputSelect
           field="country"
           isValid={isFormValid.country}
           options={['Uganda', 'Eritrea', 'Venezuela']}
+          value={country}
           setValue={setCountry}
         />
-        <InputCheckbox field="checkbox" isValid={isFormValid.checkbox} setValue={setCheckbox} />
+        <InputCheckbox
+          field="checkbox"
+          isValid={isFormValid.checkbox}
+          value={checkbox}
+          setValue={setCheckbox}
+        />
         <InputFile field="file" isValid={isFormValid.file} setValue={setFile} />
         <p className="submit__note">*required fields</p>
         <button className="submit__button">Submit</button>
