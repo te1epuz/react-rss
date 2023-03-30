@@ -8,7 +8,7 @@ describe('Input Field', () => {
   it('Renders input text', () => {
     render(
       <BrowserRouter>
-        <InputField type="text" field="name" isValid={true} refer={React.createRef()} />
+        <InputField type="text" field="name" isValid={true} value={''} setValue={React.useState} />
       </BrowserRouter>
     );
     expect(screen.getByTestId('input__field')).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe('Input Field', () => {
   it('Renders input error', () => {
     render(
       <BrowserRouter>
-        <InputField type="text" field="name" isValid={false} refer={React.createRef()} />
+        <InputField type="text" field="name" isValid={false} value={''} setValue={React.useState} />
       </BrowserRouter>
     );
     expect(screen.getByTestId('input__field')).toBeInTheDocument();

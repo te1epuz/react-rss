@@ -8,7 +8,7 @@ describe('input file', () => {
   it('Renders input', () => {
     render(
       <BrowserRouter>
-        <InputFile field="file" isValid={true} refer={React.createRef()} />
+        <InputFile field="file" isValid={true} setValue={React.useState} />
       </BrowserRouter>
     );
     expect(screen.getByRole('input__file')).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe('input file', () => {
   it('Renders input error', () => {
     render(
       <BrowserRouter>
-        <InputFile field="file" isValid={false} refer={React.createRef()} />
+        <InputFile field="file" isValid={false} setValue={React.useState} />
       </BrowserRouter>
     );
     expect(screen.getByRole('input__file')).toBeInTheDocument();

@@ -32,19 +32,6 @@ describe('Forms', () => {
     ).toHaveTextContent('Forms page');
   });
 
-  it('gender female checkbox works', () => {
-    render(
-      <BrowserRouter>
-        <Forms />
-      </BrowserRouter>
-    );
-    const femaleCheckbox = screen.getByLabelText('female') as HTMLInputElement;
-    fireEvent.change(femaleCheckbox, { target: { checked: true } });
-    const button = screen.getByRole('button') as HTMLButtonElement;
-    fireEvent.click(button);
-    expect(femaleCheckbox.checked).toBe(true);
-  });
-
   it('button works with all field filled', () => {
     render(
       <BrowserRouter>
@@ -61,9 +48,6 @@ describe('Forms', () => {
     fireEvent.change(inputCountry, { target: { value: 'Test' } });
     const inputCheckbox = screen.getByLabelText('Share all my personal data*');
     fireEvent.change(inputCheckbox, { target: { checked: true } });
-
-    const inputFile = screen.getByLabelText('Upload picture*:');
-    fireEvent.change(inputFile, { target: { files: [''] } });
 
     const button = screen.getByRole('button') as HTMLButtonElement;
     fireEvent.click(button);

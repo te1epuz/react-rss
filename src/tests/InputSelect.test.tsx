@@ -11,8 +11,9 @@ describe('Input radio', () => {
         <InputSelect
           field="country"
           isValid={true}
-          refer={React.createRef()}
           options={['Uganda', 'Eritrea', 'Venezuela']}
+          value={''}
+          setValue={React.useState}
         />
       </BrowserRouter>
     );
@@ -24,8 +25,9 @@ describe('Input radio', () => {
         <InputSelect
           field="country"
           isValid={false}
-          refer={React.createRef()}
           options={['Uganda', 'Eritrea', 'Venezuela']}
+          value={''}
+          setValue={React.useState}
         />
       </BrowserRouter>
     );
