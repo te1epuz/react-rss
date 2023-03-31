@@ -1,24 +1,25 @@
-import React from 'react';
 import { FORM_RULES } from './constants';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import './InputSelect.scss';
 
 type TProps = {
   field: string;
-  isValid: boolean;
   options: string[];
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  errors: FieldErrors<FieldValues>;
+  register: UseFormRegister<FieldValues>;
 };
 
-export default function InputSelect({ field, isValid, options, value, setValue }: TProps) {
+export default function InputSelect({ field, options, errors, register }: TProps) {
   return (
     <div role="input__select">
       <label>
         {FORM_RULES[field].fieldName}&nbsp;
         <select
           className="input__select"
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
+          {...register(field, {
+            required: true,
+          })}
+          defaultValue={''}
         >
           <option value="" disabled>
             select...
@@ -30,7 +31,10 @@ export default function InputSelect({ field, isValid, options, value, setValue }
           ))}
         </select>
       </label>
-      <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
+      <p className="errorText">
+        &nbsp;
+        {errors[field] && errors[field]!.type === 'required' && '*requied field'}
+      </p>
     </div>
   );
 }

@@ -1,16 +1,15 @@
-import React from 'react';
 import { FORM_RULES } from './constants';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import './InputRadio.scss';
 
 type TProps = {
   field: string;
-  isValid: boolean;
   options: string[];
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  errors: FieldErrors<FieldValues>;
+  register: UseFormRegister<FieldValues>;
 };
 
-export default function InputRadio({ field, isValid, options, value, setValue }: TProps) {
+export default function InputRadio({ field, options, errors, register }: TProps) {
   return (
     <div className="wrapper__radio" role="input__radio">
       <p className="title__radio">{FORM_RULES[field].fieldName}</p>
@@ -18,17 +17,20 @@ export default function InputRadio({ field, isValid, options, value, setValue }:
         <label className="label__radio" key={opt}>
           <input
             className="input__radio"
-            name={field}
             type="radio"
             value={opt}
-            checked={opt === value}
-            onChange={() => setValue(opt)}
+            {...register(field, {
+              required: true,
+            })}
           />
           {opt}
           <br />
         </label>
       ))}
-      <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
+      <p className="errorText">
+        &nbsp;
+        {errors[field] && errors[field]!.type === 'required' && '*requied field'}
+      </p>
     </div>
   );
 }

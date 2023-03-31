@@ -1,27 +1,30 @@
-import React from 'react';
 import { FORM_RULES } from './constants';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import './InputCheckbox.scss';
 
 type TProps = {
   field: string;
-  isValid: boolean;
-  value: boolean;
-  setValue: React.Dispatch<React.SetStateAction<boolean>>;
+  errors: FieldErrors<FieldValues>;
+  register: UseFormRegister<FieldValues>;
 };
 
-export default function InputCheckbox({ field, isValid, value, setValue }: TProps) {
+export default function InputCheckbox({ field, errors, register }: TProps) {
   return (
     <div data-testid="input__checkbox">
       <label className="label__checkbox">
         <input
           className="input__checkbox"
           type="checkbox"
-          checked={value}
-          onChange={(event) => setValue(event.target.checked)}
+          {...register(field, {
+            required: true,
+          })}
         />
         {FORM_RULES[field].fieldName}&nbsp;
       </label>
-      <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
+      <p className="errorText">
+        &nbsp;
+        {errors[field] && errors[field]!.type === 'required' && '*requied field'}
+      </p>
     </div>
   );
 }

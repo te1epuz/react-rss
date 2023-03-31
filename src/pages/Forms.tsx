@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { TFormCard } from '../services/types';
 import CardsList from '../components/Forms/CardsList';
 import InputField from '../components/Forms/InputField';
-import { FORM_RULES } from '../components/Forms/constants';
-import { TFormCard } from '../services/types';
 import InputFile from '../components/Forms/InputFile';
 import InputRadio from '../components/Forms/InputRadio';
 import InputSelect from '../components/Forms/InputSelect';
@@ -11,103 +11,50 @@ import './Forms.scss';
 import boggart from '../assets/boggart.gif';
 
 export default function Forms() {
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
-  const [date, setDate] = useState('');
-  const [country, setCountry] = useState('');
-  const [checkbox, setCheckbox] = useState(false);
-  const [file, setFile] = useState<File>();
-  const [cardsList, setCardsList] = useState<TFormCard[]>([]);
-  const [isFormValid, setIsFormValid] = useState<{ [index: string]: boolean }>({
-    allFields: true,
-    id: true,
-    name: true,
-    gender: true,
-    date: true,
-    country: true,
-    checkbox: true,
-    file: true,
-  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const newValidation = { ...isFormValid };
-    newValidation.allFields = true;
+  const [cardsList, setCardsList] = useState<TFormCard[]>([]);
+
+  const onSubmit = handleSubmit((data) => {
     const newCardData: TFormCard = {
       id: cardsList.length + 1,
-      name,
-      gender,
-      date,
-      country,
-      checkbox,
-      file: file ? URL.createObjectURL(file as Blob) : boggart,
+      name: data.name,
+      gender: data.gender,
+      date: data.date,
+      country: data.country,
+      checkbox: data.checkbox,
+      file: data.file[0] ? URL.createObjectURL(data.file[0] as Blob) : boggart,
     };
-
-    Object.keys(newCardData).forEach((key) => {
-      if (FORM_RULES[key].reg.test(newCardData[key as keyof TFormCard].toString())) {
-        newValidation[key] = true;
-      } else {
-        newValidation[key] = false;
-        newValidation.allFields = false;
-      }
-    });
-
-    if (newValidation.allFields) {
-      setCardsList((prev) => [...prev, newCardData]);
-      alert('data saved');
-      setIsFormValid(newValidation);
-      setName('');
-      setGender('');
-      setDate('');
-      setCountry('');
-      setCheckbox(false);
-      setFile(undefined);
-      event.currentTarget.reset();
-    } else {
-      setIsFormValid(newValidation);
-    }
-  }
+    setCardsList((prev) => [...prev, newCardData]);
+    reset();
+  });
 
   return (
     <main>
       <h1>Forms page</h1>
       <hr />
-      <form onSubmit={handleSubmit}>
-        <InputField
-          type="text"
-          field="name"
-          isValid={isFormValid.name}
-          value={name}
-          setValue={setName}
-        />
+      <form onSubmit={onSubmit}>
+        <InputField type="text" field="name" errors={errors} register={register} />
         <InputRadio
           field="gender"
-          isValid={isFormValid.gender}
           options={['male', 'female']}
-          value={gender}
-          setValue={setGender}
+          errors={errors}
+          register={register}
         />
-        <InputField
-          type="date"
-          field="date"
-          isValid={isFormValid.date}
-          value={date}
-          setValue={setDate}
-        />
+        <InputField type="date" field="date" errors={errors} register={register} />
         <InputSelect
           field="country"
-          isValid={isFormValid.country}
           options={['Uganda', 'Eritrea', 'Venezuela']}
-          value={country}
-          setValue={setCountry}
+          errors={errors}
+          register={register}
         />
-        <InputCheckbox
-          field="checkbox"
-          isValid={isFormValid.checkbox}
-          value={checkbox}
-          setValue={setCheckbox}
-        />
-        <InputFile field="file" isValid={isFormValid.file} setValue={setFile} />
+        <InputCheckbox field="checkbox" errors={errors} register={register} />
+        <InputFile field="file" register={register} />
         <p className="submit__note">*required fields</p>
         <button className="submit__button">Submit</button>
       </form>

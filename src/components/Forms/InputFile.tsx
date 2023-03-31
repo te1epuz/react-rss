@@ -1,14 +1,13 @@
-import React from 'react';
 import { FORM_RULES } from './constants';
 import './InputFile.scss';
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 
 type TProps = {
   field: string;
-  isValid: boolean;
-  setValue: React.Dispatch<React.SetStateAction<File | undefined>>;
+  register: UseFormRegister<FieldValues>;
 };
 
-export default function InputFile({ field, isValid, setValue }: TProps) {
+export default function InputFile({ field, register }: TProps) {
   return (
     <div role="input__file">
       <label>
@@ -17,10 +16,9 @@ export default function InputFile({ field, isValid, setValue }: TProps) {
           className="input__file"
           type="file"
           accept=".jpg, .jpeg, .png, .gif"
-          onChange={(event) => setValue(event.target.files![0])}
+          {...register(field)}
         />
       </label>
-      <p className="errorText">&nbsp;{isValid || FORM_RULES[field].description}</p>
     </div>
   );
 }
