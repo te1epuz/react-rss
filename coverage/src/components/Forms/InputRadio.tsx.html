@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/34</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>2/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/34</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -97,7 +97,9 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -108,42 +110,43 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { FORM_RULES } from './constants';
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FORM_RULES } from './constants';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import './InputRadio.scss';
 &nbsp;
 type TProps = {
   field: string;
-  isValid: boolean;
   options: string[];
-  value: string;
-  setValue: React.Dispatch&lt;React.SetStateAction&lt;string&gt;&gt;;
+  errors: FieldErrors&lt;FieldValues&gt;;
+  register: UseFormRegister&lt;FieldValues&gt;;
 };
 &nbsp;
-export default function InputRadio({ field, isValid, options, value, setValue }: TProps) {
+export default function InputRadio({ field, options, errors, register }: TProps) {
   return (
     &lt;div className="wrapper__radio" role="input__radio"&gt;
       &lt;p className="title__radio"&gt;{FORM_RULES[field].fieldName}&lt;/p&gt;
@@ -151,17 +154,20 @@ export default function InputRadio({ field, isValid, options, value, setValue }:
         &lt;label className="label__radio" key={opt}&gt;
           &lt;input
             className="input__radio"
-            name={field}
             type="radio"
             value={opt}
-            checked={opt === value}
-            onChange={<span class="fstat-no" title="function not covered" >() =&gt; setValue(opt)}</span>
+            {...register(field, {
+              required: true,
+            })}
           /&gt;
           {opt}
           &lt;br /&gt;
         &lt;/label&gt;
       ))}
-      &lt;p className="errorText"&gt;&amp;nbsp;{isValid || FORM_RULES[field].description}&lt;/p&gt;
+      &lt;p className="errorText"&gt;
+        &amp;nbsp;
+        {errors[field<span class="branch-0 cbranch-no" title="branch not covered" >] &amp;&amp; errors[field]!.type === <span class="branch-0 cbranch-no" title="branch not covered" >'required' &amp;&amp; '</span>*requied field'}</span>
+      &lt;/p&gt;
     &lt;/div&gt;
   );
 }
@@ -172,7 +178,7 @@ export default function InputRadio({ field, isValid, options, value, setValue }:
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-30T21:24:16.351Z
+                at 2023-03-31T23:31:04.729Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

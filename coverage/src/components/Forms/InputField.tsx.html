@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>30/30</span>
+                <span class='fraction'>35/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>30/30</span>
+                <span class='fraction'>35/35</span>
             </div>
         
             
@@ -93,7 +93,12 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -104,38 +109,42 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { FORM_RULES } from './constants';
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FORM_RULES } from './constants';
 import './InputField.scss';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 &nbsp;
 type TProps = {
   type: string;
   field: string;
-  isValid: boolean;
-  value: string;
-  setValue: React.Dispatch&lt;React.SetStateAction&lt;string&gt;&gt;;
+  errors: FieldErrors&lt;FieldValues&gt;;
+  register: UseFormRegister&lt;FieldValues&gt;;
 };
 &nbsp;
-export default function InputField({ type, field, isValid, value, setValue }: TProps) {
+export default function InputField({ type, field, errors, register }: TProps) {
   return (
     &lt;div&gt;
       &lt;label&gt;
@@ -144,12 +153,18 @@ export default function InputField({ type, field, isValid, value, setValue }: TP
           className="input__field"
           type={type}
           placeholder="Enter name"
-          value={value}
-          onChange={(event) =&gt; setValue(event.target.value)}
+          {...register(field, {
+            required: true,
+            pattern: FORM_RULES[field].reg,
+          })}
           data-testid="input__field"
         /&gt;
       &lt;/label&gt;
-      &lt;p className="errorText"&gt;&amp;nbsp;{isValid || FORM_RULES[field].description}&lt;/p&gt;
+      &lt;p className="errorText"&gt;
+        &amp;nbsp;
+        {errors[field<span class="branch-0 cbranch-no" title="branch not covered" >] &amp;&amp; errors[field]!.type === <span class="branch-0 cbranch-no" title="branch not covered" >'required' &amp;&amp; '</span>*requied field'}</span>
+        {errors[field<span class="branch-0 cbranch-no" title="branch not covered" >] &amp;&amp; errors[field]!.type === <span class="branch-0 cbranch-no" title="branch not covered" >'pattern' &amp;&amp; F</span>ORM_RULES[field].description}</span>
+      &lt;/p&gt;
     &lt;/div&gt;
   );
 }
@@ -160,7 +175,7 @@ export default function InputField({ type, field, isValid, value, setValue }: TP
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-30T21:24:16.351Z
+                at 2023-03-31T23:31:04.729Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

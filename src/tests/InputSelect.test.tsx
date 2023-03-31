@@ -1,36 +1,30 @@
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import React from 'react';
 import InputSelect from '../components/Forms/InputSelect';
+import { useForm } from 'react-hook-form';
 
-describe('Input radio', () => {
-  it('Renders radio', () => {
-    render(
-      <BrowserRouter>
-        <InputSelect
-          field="country"
-          isValid={true}
-          options={['Uganda', 'Eritrea', 'Venezuela']}
-          value={''}
-          setValue={React.useState}
-        />
-      </BrowserRouter>
-    );
+const FormFieldWithHook = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useForm();
+  return (
+    <InputSelect
+      field="country"
+      options={['Uganda', 'Eritrea', 'Venezuela']}
+      errors={errors}
+      register={register}
+    />
+  );
+};
+
+describe('Input select', () => {
+  it('Renders select', () => {
+    render(<FormFieldWithHook />);
     expect(screen.getByRole('input__select')).toBeInTheDocument();
   });
-  it('Renders radio with error', () => {
-    render(
-      <BrowserRouter>
-        <InputSelect
-          field="country"
-          isValid={false}
-          options={['Uganda', 'Eritrea', 'Venezuela']}
-          value={''}
-          setValue={React.useState}
-        />
-      </BrowserRouter>
-    );
+  it('Renders select with error', () => {
+    render(<FormFieldWithHook />);
     expect(screen.getByRole('input__select')).toBeInTheDocument();
   });
 });
