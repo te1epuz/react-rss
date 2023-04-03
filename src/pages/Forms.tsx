@@ -31,6 +31,7 @@ export default function Forms() {
       file: data.file[0] ? URL.createObjectURL(data.file[0] as Blob) : boggart,
     };
     setCardsList((prev) => [...prev, newCardData]);
+    alert('data has been saved');
     reset();
   });
 
