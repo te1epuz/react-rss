@@ -16,7 +16,9 @@ export default function Forms() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    reValidateMode: 'onSubmit',
+  });
 
   const [cardsList, setCardsList] = useState<TFormCard[]>([]);
 
