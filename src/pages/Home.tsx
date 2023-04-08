@@ -9,6 +9,12 @@ export default function Home() {
 
   useEffect(() => {
     setSearchResultsList(data.products);
+    async function fetchData() {
+      const response = await fetch('https://rickandmortyapi.com/api/character');
+      const data = await response.json();
+      console.log(data);
+    }
+    fetchData();
   }, []);
 
   return (
