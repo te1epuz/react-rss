@@ -1,21 +1,34 @@
 import { RefObject } from 'react';
 
-export type TProduct = {
-  id: number | string;
-  brand: string;
-  category: string;
-  description: string;
-  discountPercentage: number;
-  images: string[];
-  price: number;
-  rating: number;
-  stock: number;
-  thumbnail: string;
-  title: string;
+export type TSearchResult = {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
+  image: string;
+  episode: string[];
+  url: string;
+  created: string;
 };
 
-export type TResponse = {
-  products: TProduct[];
+export type TSearchResults = {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string;
+  };
+  results: TSearchResult[];
 };
 
 export type TFormData = {

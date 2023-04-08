@@ -2,25 +2,23 @@
   position: relative;
   padding: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
 }
 
 .card:hover {
   outline: 0.0625rem solid #f1f1f1;
   border-radius: 0.25rem;
-}
-
-.card__content_grid {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-  margin: auto;
+  cursor: pointer;
 }
 
 .img__wrapper {
   display: block;
   margin: 0 auto;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   display: flex;
   align-items: center;
 }
@@ -38,42 +36,27 @@
   transform: scale(1.03);
 }
 
-.price {
-  margin-top: 10px;
+.name {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-size: 1rem;
-  h3,
-  p {
-    margin: 0;
-  }
-}
-
-.title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-transform: capitalize;
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
-.text_greyed {
-  padding: 0;
   margin: 0;
-  line-height: 1rem;
-  color: #ababab;
-  font-size: 0.9rem;
+  margin-top: 10px;
+  font-size: 1.7rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 65px;
 }
 
-.card__buttons {
-  display: flex;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  gap: 10px;
+.status {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .card__button {
+  margin: auto;
+  margin-top: 10px;
   width: 120px;
   height: 35px;
   border: solid 1px #ababab;

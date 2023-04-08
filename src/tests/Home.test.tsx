@@ -2,7 +2,7 @@ import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Home from '../pages/Home';
 import { BrowserRouter } from 'react-router-dom';
-import ResultsList from '../components/Home/ResultsList';
+import ResultsList from '../components/Home/SearchResults';
 
 const resultsArray = [
   {

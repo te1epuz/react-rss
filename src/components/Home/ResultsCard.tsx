@@ -1,42 +1,24 @@
-import React from 'react';
-import { TProduct } from '../../services/types';
-import './ResultsCard.scss';
+import { TSearchResult } from '../../services/types';
+import styles from './ResultsCard.module.scss';
 
 type TProps = {
-  result: TProduct;
+  searchResult: TSearchResult;
 };
 
-export default function ResultsCard({ result }: TProps) {
+export default function ResultsCard({ searchResult }: TProps) {
   return (
-    <div className="card card__content_grid">
-      <div className="card__content">
-        <div className="img__wrapper">
-          <img className="img" src={result.thumbnail} alt={result.title} />
+    <div className={styles.card}>
+      <div className={styles.card__content}>
+        <div className={styles.img__wrapper}>
+          <img className={styles.img} src={searchResult.image} alt={searchResult.name} />
         </div>
-        <div className="price">
-          <h3>${result.price}</h3>
-          <p className="text_rating">Rating: {result.rating}</p>
-        </div>
-        <p className="title">{result.title}</p>
-        <div className="disabled">
-          <p className="text_greyed">Categoty: {result.category}</p>
-          <p className="text_greyed">Brand: {result.brand}</p>
-          <p className="text_greyed">
-            <span>Discount: {result.discountPercentage}% | </span>
-            <span>Stock: {result.stock}</span>
-          </p>
-        </div>
+        <h3 className={styles.name}>{searchResult.name}</h3>
+        <p className={styles.status}>Status: {searchResult.status}</p>
       </div>
 
-      <div className="card__buttons">
-        <button className="card__button" type="button">
-          Details
-        </button>
-
-        <button className="card__button" type="button">
-          2nd button
-        </button>
-      </div>
+      <button className={styles.card__button} type="button">
+        Details
+      </button>
     </div>
   );
 }

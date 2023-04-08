@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import SearchBar from '../components/Home/SearchBar';
-import ResultsList from '../components/Home/ResultsList';
-import data from '../assets/data.json';
-import { TProduct } from '../services/types';
+import { TSearchResults } from '../services/types';
+import SearchResults from '../components/Home/SearchResults';
 
 export default function Home() {
-  const [searchResultsList, setSearchResultsList] = useState<TProduct[] | null>(null);
+  const [searchResults, setSearchResults] = useState<TSearchResults | null>(null);
 
   useEffect(() => {
-    setSearchResultsList(data.products);
     async function fetchData() {
       const response = await fetch('https://rickandmortyapi.com/api/character');
       const data = await response.json();
+      setSearchResults(data);
       console.log(data);
     }
     fetchData();
@@ -21,8 +20,8 @@ export default function Home() {
     <main>
       <h1>Home page</h1>
       <SearchBar />
-      {searchResultsList !== null ? (
-        <ResultsList resultsArray={searchResultsList} />
+      {searchResults !== null ? (
+        <SearchResults searchResults={searchResults} />
       ) : (
         <h3>loading...</h3>
       )}
