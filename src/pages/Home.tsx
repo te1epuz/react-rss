@@ -4,26 +4,35 @@ import { TSearchResults } from '../services/types';
 import SearchResults from '../components/Home/SearchResults';
 
 export default function Home() {
+  const [searchText, setSearchText] = useState(localStorage.getItem('searchInputValue') || '');
   const [searchResults, setSearchResults] = useState<TSearchResults | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://rickandmortyapi.com/api/character');
-      const data = await response.json();
-      setSearchResults(data);
-      console.log(data);
+      setIsLoading(true);
+      const response = await fetch(
+        'https://rickandmortyapi.com/api/character' + (searchText && `/?name=${searchText}`)
+      );
+      if (!response.ok) {
+        setSearchResults(null);
+      } else {
+        const data: TSearchResults = await response.json();
+        setSearchResults(data);
+      }
+      setIsLoading(false);
     }
     fetchData();
-  }, []);
+  }, [searchText]);
 
   return (
     <main>
       <h1>Home page</h1>
-      <SearchBar />
-      {searchResults !== null ? (
-        <SearchResults searchResults={searchResults} />
-      ) : (
-        <h3>loading...</h3>
+      <SearchBar setSearchText={setSearchText} />
+      {isLoading && <h3>loading...</h3>}
+      {!isLoading && !searchResults && <h3>no results found for &apos;{searchText}&apos; :(</h3>}
+      {!isLoading && searchResults && (
+        <SearchResults searchText={searchText} searchResults={searchResults} />
       )}
     </main>
   );

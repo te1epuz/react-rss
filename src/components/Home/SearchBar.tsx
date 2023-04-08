@@ -1,23 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './SearchBar.scss';
 
-export default function SearchBar() {
-  let searchBarText = localStorage.getItem('searchBarText') || '';
+type TProps = {
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function SearchBar({ setSearchText }: TProps) {
+  const [searchInputValue, setSearchInputValue] = useState(
+    localStorage.getItem('searchInputValue') || ''
+  );
 
   useEffect(() => {
     return () => {
-      localStorage.setItem('searchBarText', searchBarText);
+      localStorage.setItem('searchInputValue', searchInputValue);
     };
   });
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSearchText(searchInputValue);
+  }
+
   return (
-    <form role="search">
+    <form role="search" onSubmit={handleSubmit}>
       <input
         type="search"
         className="search__input"
-        defaultValue={searchBarText}
+        value={searchInputValue}
         placeholder="Search..."
-        onChange={(event) => (searchBarText = event.target.value)}
+        onChange={(event) => setSearchInputValue(event.target.value)}
       />
       <button className="search__button">Search</button>
     </form>
