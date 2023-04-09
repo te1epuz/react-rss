@@ -29,7 +29,7 @@ export default function Home() {
     <main>
       <h1>Home page</h1>
       <SearchBar setSearchText={setSearchText} />
-      {isLoading && <h3>loading...</h3>}
+      {isLoading && <h3>Progressing...</h3>}
       {!isLoading && !searchResults && <h3>no results found for &apos;{searchText}&apos; :(</h3>}
       {!isLoading && searchResults && (
         <SearchResults searchText={searchText} searchResults={searchResults} />

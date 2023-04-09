@@ -15,10 +15,9 @@ export default function ResultsCard({ searchResult }: TProps) {
         <h3 className={styles.name}>{searchResult.name}</h3>
         <p className={styles.status}>Status: {searchResult.status}</p>
       </div>
-
-      <button className={styles.card__button} type="button">
+      {/* <button className={styles.card__button} type="button">
         Details
-      </button>
+      </button> */}
     </div>
   );
 }

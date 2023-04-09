@@ -6,19 +6,24 @@
   flex-direction: column;
   width: 300px;
   margin: auto;
+  outline: 0.0625rem solid #f1f1f1;
+  border-radius: 0.25rem;
+  transition: 0.2s;
+  box-sizing: border-box;
 }
 
 .card:hover {
-  outline: 0.0625rem solid #f1f1f1;
+  outline: 0.0625rem solid #969696;
   border-radius: 0.25rem;
+  transform: scale(1.03);
   cursor: pointer;
 }
 
 .img__wrapper {
   display: block;
   margin: 0 auto;
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   display: flex;
   align-items: center;
 }
@@ -32,9 +37,9 @@
   transition: 0.2s;
 }
 
-.img:hover {
-  transform: scale(1.03);
-}
+// .img:hover {
+//   transform: scale(1.03);
+// }
 
 .name {
   display: flex;
@@ -57,7 +62,7 @@
 .card__button {
   margin: auto;
   margin-top: 20px;
-  width: 120px;
+  width: 180px;
   height: 35px;
   border: solid 1px #ababab;
   border-radius: 0.25rem;
