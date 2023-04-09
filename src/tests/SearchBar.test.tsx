@@ -24,6 +24,7 @@ describe('Search Bar', () => {
     );
     const input = screen.getByRole('searchbox') as HTMLInputElement;
     fireEvent.change(input, { target: { value: 'test text' } });
+    fireEvent.click(screen.getByRole('button'));
     expect(input.value).toBe('test text');
   });
 

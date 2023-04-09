@@ -46,4 +46,12 @@ describe('ResultsList', () => {
     );
     expect(screen.getByTestId('results__list')).toBeInTheDocument();
   });
+  it('Renders list of results', () => {
+    render(
+      <BrowserRouter>
+        <SearchResults searchText={'omgg'} searchResults={searchResults} />
+      </BrowserRouter>
+    );
+    expect(screen.getByTestId('results__list')).toBeInTheDocument();
+  });
 });

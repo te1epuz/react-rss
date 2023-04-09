@@ -22,7 +22,9 @@ export default function InfoWindow({ searchResult, setIsInfoWindowActive }: TPro
             <img className={styles.img} src={searchResult.image} alt={searchResult.name} />
           </div>
           <div>
-            <h2 className={styles.name}>{searchResult.name}</h2>
+            <h2 className={styles.name} role="charName">
+              {searchResult.name}
+            </h2>
             <p>Status: {searchResult.status}</p>
             <p>Gender: {searchResult.gender}</p>
             <p>Species: {searchResult.species}</p>

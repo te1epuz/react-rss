@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import Home from '../pages/Home';
 import { BrowserRouter } from 'react-router-dom';
 import SearchResults from '../components/Home/SearchResults';
@@ -52,12 +52,40 @@ describe('Home', () => {
     ).toHaveTextContent('Home page');
   });
 
-  it('Renders list of results', () => {
+  it('Renders list of results', async () => {
     render(
       <BrowserRouter>
-        <SearchResults searchText={''} searchResults={searchResults} />
+        <Home />
       </BrowserRouter>
     );
-    expect(screen.getByTestId('results__list')).toBeInTheDocument();
+    const result = await waitFor(() => screen.getByTestId('results__list'));
+    expect(result).toBeInTheDocument();
+  });
+
+  it('Renders searh result card', () => {
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
+    expect(
+      screen.getByRole('heading', {
+        level: 3,
+      })
+    ).toBeInTheDocument();
+  });
+
+  it('Renders overlay', async () => {
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
+    await waitFor(() => screen.getByRole('card'));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('card'));
+    });
+    const result = await waitFor(() => screen.getByRole('charName'));
+    expect(result).toHaveTextContent('Rick Sanchez');
   });
 });
