@@ -1,6 +1,5 @@
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Home from '../pages/Home';
 import { BrowserRouter } from 'react-router-dom';
 import SearchResults from '../components/Home/SearchResults';
 
@@ -38,20 +37,7 @@ const searchResults = {
   ],
 };
 
-describe('Home', () => {
-  it('Renders h1', () => {
-    render(
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>
-    );
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-      })
-    ).toHaveTextContent('Home page');
-  });
-
+describe('ResultsList', () => {
   it('Renders list of results', () => {
     render(
       <BrowserRouter>

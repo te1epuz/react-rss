@@ -11,7 +11,7 @@ export default function ResultsCard({ searchResult }: TProps) {
   const [isInfoWindowActive, setIsInfoWindowActive] = useState(false);
   return (
     <div>
-      <div className={styles.card} onClick={() => setIsInfoWindowActive(true)}>
+      <div className={styles.card} onClick={() => setIsInfoWindowActive(true)} role="card">
         <div className={styles.card__content}>
           <div className={styles.img__wrapper}>
             <img className={styles.img} src={searchResult.image} alt={searchResult.name} />
