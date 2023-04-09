@@ -1,23 +1,28 @@
+import { useState } from 'react';
 import { TSearchResult } from '../../services/types';
 import styles from './ResultsCard.module.scss';
+import InfoWindow from './InfoWindow';
 
 type TProps = {
   searchResult: TSearchResult;
 };
 
 export default function ResultsCard({ searchResult }: TProps) {
+  const [isInfoWindowActive, setIsInfoWindowActive] = useState(false);
   return (
-    <div className={styles.card}>
-      <div className={styles.card__content}>
-        <div className={styles.img__wrapper}>
-          <img className={styles.img} src={searchResult.image} alt={searchResult.name} />
+    <div>
+      <div className={styles.card} onClick={() => setIsInfoWindowActive(true)}>
+        <div className={styles.card__content}>
+          <div className={styles.img__wrapper}>
+            <img className={styles.img} src={searchResult.image} alt={searchResult.name} />
+          </div>
+          <h3 className={styles.name}>{searchResult.name}</h3>
+          <p className={styles.status}>Status: {searchResult.status}</p>
         </div>
-        <h3 className={styles.name}>{searchResult.name}</h3>
-        <p className={styles.status}>Status: {searchResult.status}</p>
       </div>
-      {/* <button className={styles.card__button} type="button">
-        Details
-      </button> */}
+      {isInfoWindowActive && (
+        <InfoWindow searchResult={searchResult} setIsInfoWindowActive={setIsInfoWindowActive} />
+      )}
     </div>
   );
 }
