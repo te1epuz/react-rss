@@ -2,9 +2,6 @@ import { rest } from 'msw';
 
 export const handlers = [
   rest.get('https://rickandmortyapi.com/api/character', (req, res, ctx) => {
-    // if (req.url.searchParams.get('name') === 'testtext') {
-    //   return res(ctx.status(404), ctx.json({ response: 'error' }));
-    // } else {
     return res(
       ctx.status(200),
       ctx.json({
@@ -34,12 +31,10 @@ export const handlers = [
             episode: [
               'https://rickandmortyapi.com/api/episode/1',
               'https://rickandmortyapi.com/api/episode/2',
-              // ...
             ],
             url: 'https://rickandmortyapi.com/api/character/1',
             created: '2017-11-04T18:48:46.250Z',
           },
-          // ...
         ],
       })
     );
