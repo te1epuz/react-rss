@@ -1,23 +1,9 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import searchTextSlice from './searchTextSlice';
 
-const searchTextSlice = createSlice({
-  name: 'searchText',
-  initialState: {
-    value: '',
-  },
-  reducers: {
-    updateText(state, action) {
-      state.value = action.payload.value;
-    },
-  },
+export const store = configureStore({
+  reducer: { searchText: searchTextSlice },
 });
 
-export const { updateText } = searchTextSlice.actions;
-
-const store = configureStore({
-  reducer: searchTextSlice.reducer,
-});
-
-store.subscribe(() => console.log(store.getState()));
-
-store.dispatch(updateText('new text'));
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;

@@ -12,7 +12,8 @@ export default function SearchResults({ searchText, searchResults }: TProps) {
   return (
     <div>
       <h4>
-        Search results {searchText && `for '${searchText}'`} (found: {searchResults.info.count}):
+        {searchText ? `Search results for '${searchText}'` : 'No filter'} (found:{' '}
+        {searchResults.info.count}):
       </h4>
       <div className="items__big_grid" data-testid="results__list">
         {searchResults.results.map((result) => (
