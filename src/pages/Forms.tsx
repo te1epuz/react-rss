@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TFormCard } from '../services/types';
 import CardsList from '../components/Forms/CardsList';
@@ -9,6 +8,8 @@ import InputSelect from '../components/Forms/InputSelect';
 import InputCheckbox from '../components/Forms/InputCheckbox';
 import './Forms.scss';
 import boggart from '../assets/boggart.gif';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { addCard } from '../redux/cardsListSlice';
 
 export default function Forms() {
   const {
@@ -20,7 +21,8 @@ export default function Forms() {
     reValidateMode: 'onSubmit',
   });
 
-  const [cardsList, setCardsList] = useState<TFormCard[]>([]);
+  const cardsList = useAppSelector((state) => state.cardsList.list);
+  const dispatch = useAppDispatch();
 
   const onSubmit = handleSubmit((data) => {
     const newCardData: TFormCard = {
@@ -32,7 +34,7 @@ export default function Forms() {
       checkbox: data.checkbox,
       file: data.file[0] ? URL.createObjectURL(data.file[0] as Blob) : boggart,
     };
-    setCardsList((prev) => [...prev, newCardData]);
+    dispatch(addCard(newCardData));
     alert('data has been saved');
     reset();
   });
