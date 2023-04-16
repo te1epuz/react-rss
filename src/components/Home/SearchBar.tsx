@@ -1,9 +1,9 @@
 import './SearchBar.scss';
-import { updateInput, updateText } from '../../redux/searchTextSlice';
+import { updateInput, updateText } from '../../redux/searchDataSlice';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 
 export default function SearchBar() {
-  const searchInputValue = useAppSelector((state) => state.searchText.inputValue);
+  const searchInputValue = useAppSelector((state) => state.searchData.inputValue);
   const dispatch = useAppDispatch();
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

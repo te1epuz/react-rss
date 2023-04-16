@@ -1,28 +1,28 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface ISearchText {
-  value: string;
+type TSearchData = {
+  searchText: string;
   inputValue: string;
-}
+};
 
-const initialState: ISearchText = {
-  value: '',
+const initialState: TSearchData = {
+  searchText: '',
   inputValue: '',
 };
 
-const searchTextSlice = createSlice({
-  name: 'searchText',
+const searchDataSlice = createSlice({
+  name: 'searchData',
   initialState,
   reducers: {
     updateInput(state, action: PayloadAction<string>) {
       state.inputValue = action.payload;
     },
     updateText(state, action: PayloadAction<string>) {
-      state.value = action.payload;
+      state.searchText = action.payload;
     },
   },
 });
 
-export const { updateInput, updateText } = searchTextSlice.actions;
+export const { updateInput, updateText } = searchDataSlice.actions;
 
-export default searchTextSlice.reducer;
+export default searchDataSlice.reducer;
