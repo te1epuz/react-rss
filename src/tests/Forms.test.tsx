@@ -2,12 +2,16 @@ import { describe, it } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Forms from '../pages/Forms';
+import { store } from '../redux/store';
+import { Provider } from 'react-redux';
 
 describe('Forms', () => {
   it('Renders h1', () => {
     render(
       <BrowserRouter>
-        <Forms />
+        <Provider store={store}>
+          <Forms />
+        </Provider>
       </BrowserRouter>
     );
     expect(
@@ -20,7 +24,9 @@ describe('Forms', () => {
   it('button works', () => {
     render(
       <BrowserRouter>
-        <Forms />
+        <Provider store={store}>
+          <Forms />
+        </Provider>
       </BrowserRouter>
     );
     const button = screen.getByRole('button') as HTMLButtonElement;
@@ -35,7 +41,9 @@ describe('Forms', () => {
   it('button works with all field filled', () => {
     render(
       <BrowserRouter>
-        <Forms />
+        <Provider store={store}>
+          <Forms />
+        </Provider>
       </BrowserRouter>
     );
     const inputName = screen.getByLabelText('Name*:');

@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
@@ -8,5 +8,6 @@ export default defineConfig({
     coverage: {
       provider: 'c8',
     },
+    exclude: [...configDefaults.exclude, './src/mocks/*', './src/redux/*'],
   },
 });
