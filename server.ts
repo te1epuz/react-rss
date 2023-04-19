@@ -13,8 +13,6 @@ async function createServer() {
     appType: 'custom',
   });
 
-  // Use vite's connect instance as middleware. If you use your own
-  // express router (express.Router()), you should use router.use
   app.use(vite.middlewares);
 
   app.use('*', async (req, res, next) => {
@@ -23,12 +21,21 @@ async function createServer() {
     try {
       let template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8');
       template = await vite.transformIndexHtml(url, template);
+      const html = template.split(`<!--ssr-outlet-->`);
+
       const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
-      const appHtml = await render(url);
-      const html = template.replace(`<!--ssr-outlet-->`, appHtml);
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      const { pipe } = await render(url, {
+        onShellReady() {
+          res.write(html[0]);
+          pipe(res);
+        },
+        onAllReady() {
+          res.write(html[0] + html[1]);
+          res.end();
+        },
+      });
     } catch (e) {
-      vite.ssrFixStacktrace(e);
+      vite.ssrFixStacktrace(e as Error);
       next(e);
     }
   });
