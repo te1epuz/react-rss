@@ -1,0 +1,33 @@
+.errorText {
+  margin: 5px 0 0 20px;
+  color: red;
+  font-size: 0.8em;
+}
+
+.submit__note {
+  font-size: 0.8em;
+  color: gray;
+}
+
+.submit__button {
+  margin-left: 70px;
+  padding: 12px 35px;
+  font-size: 1em;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #c8c8c8;
+  background: #f45c03;
+  border-radius: 4px 4px;
+  left: -5px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background: #f67c35;
+  }
+}
+
+main {
+  font-size: 27px;
+}
