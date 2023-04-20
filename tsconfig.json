@@ -17,7 +17,8 @@
     "jsx": "react-jsx",
 
     "noImplicitAny": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["cypress", "cypress-file-upload"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
